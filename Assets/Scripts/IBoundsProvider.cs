@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IBoundsProvider
 {
+
     Vector2 GetBounds();
 
 }

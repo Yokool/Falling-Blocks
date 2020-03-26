@@ -12,11 +12,17 @@ public class TileManager : MonoBehaviour
 
     public float wallHeight;
 
+    public Transform player;
+
+
     public void Start()
     {
 
         GenerateGround();
         GenerateWalls();
+
+        player.transform.position = transform.position;
+        player.transform.Translate(new Vector3(0, 1, 0));
 
     }
 

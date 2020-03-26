@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\Jump.cs" />
     <Compile Include="Assets\Scripts\LossBoxScript.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\ScorePrinter.cs" />
     <Compile Include="Assets\Scripts\SpawnAbove.cs" />
     <Compile Include="Assets\Scripts\TileManager.cs" />
     <Compile Include="Assets\Scripts\TilemapBoundsProvider.cs" />
