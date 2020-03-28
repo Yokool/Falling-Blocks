@@ -270,6 +270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkedMap: {fileID: 1836417646}
+  gameCanvas: {fileID: 1595356678}
+  gameOverCanvas: {fileID: 1815723367}
 --- !u!4 &610222125
 Transform:
   m_ObjectHideFlags: 0
@@ -401,7 +403,7 @@ GameObject:
   - component: {fileID: 779131846}
   - component: {fileID: 779131845}
   m_Layer: 5
-  m_Name: YouScoreStringText (1)
+  m_Name: YouScoredValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -63.3, y: 120.7}
+  m_AnchoredPosition: {x: -178.4, y: 186.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481565331
@@ -813,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1595356676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -929,7 +931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175.7, y: 120.7}
+  m_AnchoredPosition: {x: -290.8, y: 186.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703850881
@@ -1061,6 +1063,7 @@ GameObject:
   - component: {fileID: 1815723367}
   - component: {fileID: 1815723366}
   - component: {fileID: 1815723365}
+  - component: {fileID: 1815723369}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
@@ -1097,7 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1151,6 +1154,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1815723369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815723364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d65637c28dedae4882460cc19ee1a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  youScoreValueText: {fileID: 779131845}
+  goToMainMenuButton: {fileID: 12420730}
+  scoreScript: {fileID: 2141633940}
 --- !u!1 &1836417646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 69487852193060688, guid: 117db8dd571547d42b66452cbc8908ef, type: 3}
-  mapSize: {x: 100, y: 100}
+  mapSize: {x: 20, y: 20}
   wall: {fileID: 685146058256224615, guid: 19831f98bc384a04284791134b5a6252, type: 3}
   wallHeight: 1
   player: {fileID: 2141633935}
