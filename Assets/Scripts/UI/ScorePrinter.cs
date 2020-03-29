@@ -9,7 +9,9 @@ public class ScorePrinter : MonoBehaviour
 
     public Score tiedScoreScript;
 
-    public Text valueText;
+    public Text scoreValueText;
+
+    public Text scoreMultiplierValueText;
 
     void Start()
     {
@@ -20,7 +22,8 @@ public class ScorePrinter : MonoBehaviour
     void Update()
     {
 
-        valueText.text = Convert.ToString(tiedScoreScript.score);
+        scoreValueText.text = Convert.ToString(tiedScoreScript.score);
+        scoreMultiplierValueText.text = Convert.ToString(tiedScoreScript.scoreMultiplier);
 
     }
 }

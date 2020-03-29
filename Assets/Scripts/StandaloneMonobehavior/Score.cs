@@ -6,6 +6,8 @@ public class Score : MonoBehaviour
 {
     public float score;
 
+    public float scoreMultiplier = 1;
+
     public float timeToIncrement;
 
     private float timeCounter = 0;
@@ -23,7 +25,7 @@ public class Score : MonoBehaviour
 
         if(timeCounter >= timeToIncrement)
         {
-            ++score;
+            score += 1 * scoreMultiplier;
             timeCounter = 0;
         }
 

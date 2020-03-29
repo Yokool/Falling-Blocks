@@ -30,6 +30,12 @@ public class GameOverUI : MonoBehaviour
     {
 
         SceneManager.LoadScene((int)SceneEnum.MAIN_MENU, LoadSceneMode.Single);
+
+        SessionData sessionData = new SessionData(scoreScript);
         
+        SaveSystem.dataLoaded.AddSessionData(sessionData);
+        SaveSystem.SavePersistentData();
+
+
     }
 }

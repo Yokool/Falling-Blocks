@@ -14,6 +14,7 @@ public class TileManager : MonoBehaviour
 
     public Transform player;
 
+    public List<GameObject> tiles = new List<GameObject>();
 
     public void Start()
     {
@@ -23,6 +24,13 @@ public class TileManager : MonoBehaviour
 
         player.transform.position = transform.position;
         player.transform.Translate(new Vector3(0, 1, 0));
+
+        SpawnMultiplierTile();
+
+    }
+
+    private void Update()
+    {
 
     }
 
@@ -39,7 +47,7 @@ public class TileManager : MonoBehaviour
                 tilePosition *= tile.localScale.x;
                 tilePosition *= tile.localScale.y;
 
-                GameObject.Instantiate(tile, transform.position + tilePosition, Quaternion.Euler(Vector3.right * 90));
+                tiles.Add(GameObject.Instantiate(tile, transform.position + tilePosition, Quaternion.Euler(Vector3.right * 90)).gameObject);
 
             }
         }
@@ -98,6 +106,29 @@ public class TileManager : MonoBehaviour
         BoxCollider coll = transform.GetComponent<BoxCollider>();
 
         coll.size += new Vector3(0, 50000, 0);
+
+    }
+
+    public void SpawnMultiplierTile()
+    {
+
+        if(tiles.Count <= 1) // 1 because of the second number loop
+        {
+            return;
+        }
+
+        GameObject tile = null;
+
+        do
+        {
+            int randomNumber = Random.Range(0, tiles.Count - 1);
+
+            tile = tiles[randomNumber];
+
+        } while (!tile);
+        
+
+        tile.AddComponent<MultiplierTile>();
 
     }
 

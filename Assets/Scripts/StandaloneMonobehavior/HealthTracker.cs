@@ -24,7 +24,6 @@ public class HealthTracker : MonoBehaviour
 
         startingHealth = health;
 
-
     }
 
     void Update()
@@ -55,7 +54,7 @@ public class HealthTracker : MonoBehaviour
     public void ChangeColor()
     {
 
-        float percentage = health / startingHealth;
+        float percentage = Mathf.Abs(health / startingHealth);
 
         float rgb = Mathf.Lerp(0, 1, percentage);
 
