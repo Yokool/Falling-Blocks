@@ -53,6 +53,8 @@ public static class SaveSystem
         dataLoaded = data;
 
 
+        dataLoaded.TotalScore = 99999; // REMOVE!!!!
+
         persistentFile.Close();
 
     }

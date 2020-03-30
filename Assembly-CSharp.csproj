@@ -74,6 +74,9 @@
     <Compile Include="Assets\Scripts\LossBoxScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScripts\MainMenuCanvasScript.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\SceneEnum.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ShopAssetManager.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ShopItemUI.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ShopItemValues.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jetpack.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jump.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollision.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Assets\Scripts\Tilemap\TilemapBoundsProvider.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\UI\ScorePrinter.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopItemUICreator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ederm/Falling Blocks/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
