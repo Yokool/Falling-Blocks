@@ -74,10 +74,11 @@
     <Compile Include="Assets\Scripts\LossBoxScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScripts\MainMenuCanvasScript.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\SceneEnum.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jetpack.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jump.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollision.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\FollowObject.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\HealthTracker.cs" />
-    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Jump.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Movement.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Score.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\TouchingObject.cs" />

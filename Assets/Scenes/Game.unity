@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 69487852193060688, guid: 117db8dd571547d42b66452cbc8908ef, type: 3}
-  mapSize: {x: 5, y: 5}
+  mapSize: {x: 20, y: 20}
   wall: {fileID: 685146058256224615, guid: 19831f98bc384a04284791134b5a6252, type: 3}
   wallHeight: 1
   player: {fileID: 2141633935}
@@ -1538,6 +1538,7 @@ GameObject:
   - component: {fileID: 2141633940}
   - component: {fileID: 2141633938}
   - component: {fileID: 2141633941}
+  - component: {fileID: 2141633942}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1704,3 +1705,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd9907d016d0bf48ae97227776a673e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2141633942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141633931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ebba6ad4118274fa338ec304520094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectRigidBody: {fileID: 0}
+  jetpackFuel: 0
+  jetpackRefuelIncrement: 0.0025
+  jetpackSpendFuelDecrement: 0.05
+  maxFuel: 10
+  jetpackStrength: 5

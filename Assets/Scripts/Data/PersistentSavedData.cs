@@ -13,6 +13,20 @@ public class PersistentSavedData
     [SerializeField]
     private float totalScore;
 
+    public float TotalScore{
+
+        get
+        {
+            return totalScore;
+        }
+
+        set
+        {
+            totalScore = value;
+        }
+
+    }
+
     /// <summary>
     /// Adds data from a session (single game) to the persistent data.
     /// </summary>
