@@ -29,19 +29,23 @@ public class ShopItemUI : MonoBehaviour
 
     public Image itemImage;
 
-    
+    private void Start()
+    {
+        buyButton.onClick.AddListener(OnBuy);
+    }
 
     public void OnBuy()
     {
 
-        if (SaveSystem.dataLoaded.TotalScore <= tiedItem.cost) // Not enough money
+        if (SaveSystem.dataLoaded.TotalScore <= tiedItem.Cost) // Not enough money
         {
             return;
         }
 
-        ++tiedItem.currentUpgrade;
+        ++tiedItem.CurrentUpgrade;
 
-        SaveSystem.dataLoaded.TotalScore -= tiedItem.cost;
+        SaveSystem.dataLoaded.TotalScore -= tiedItem.Cost;
+        tiedItem.Cost = (int)((float)tiedItem.Cost * tiedItem.CostMultiplier);
 
         UpdateGUI();
 
@@ -49,14 +53,15 @@ public class ShopItemUI : MonoBehaviour
 
     public void UpdateGUI()
     {
-        itemName.text = tiedItem.i_name;
-        itemCostText.text = System.Convert.ToString(tiedItem.cost);
-        itemDescriptionText.text = tiedItem.description;
+        itemName.text = tiedItem.I_Name;
+        itemCostText.text = System.Convert.ToString(tiedItem.Cost);
+        itemDescriptionText.text = tiedItem.Description;
 
-        upgradeSlider.value = tiedItem.currentUpgrade;
-        upgradeSlider.maxValue = tiedItem.maxUpgradeAmount;
+        upgradeSlider.value = tiedItem.CurrentUpgrade;
+        
+        upgradeSlider.maxValue = tiedItem.MaxUpgradeAmount;
 
-        buyButton.onClick.AddListener(OnBuy);
+        
     }
 
 }

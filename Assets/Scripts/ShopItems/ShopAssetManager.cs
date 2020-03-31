@@ -8,47 +8,31 @@ using UnityEngine;
 public class ShopAssetManager
 {
 
-    public static string scriptableObjectPath = "\\Shop\\ItemValueScriptableObjects\\";
-
     public static List<ShopItemValues> loadedItemValues = new List<ShopItemValues>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
     public static void Initialize()
     {
+        CreateInitialItems();
+    }
 
-        string[] files = Directory.GetFiles(Application.dataPath + scriptableObjectPath);
+    private static void CreateInitialItems()
+    {
 
+        ShopItemValues jump = new ShopItemValues("Jetpack", "Ride this for a joyride.", 10, null, 1.25f, 100);
 
-        foreach(string file in files)
+        AddItemToPool(jump, true);
+
+    }
+
+    public static void AddItemToPool(ShopItemValues item, bool createGUI)
+    {
+
+        loadedItemValues.Add(item);
+
+        if (createGUI)
         {
-            string[] split = file.Split(new string[] { "Assets" }, StringSplitOptions.None);
-
-            string actualFile = "Assets" + split[1];
-            
-
-            ShopItemValues scriptableObject = AssetDatabase.LoadAssetAtPath<ShopItemValues>(actualFile);
-
-            Debug.Log(scriptableObject);
-
-            if (!scriptableObject) // Ignore misc files and .meta files.
-            {
-                continue;
-            }
-            
-            loadedItemValues.Add(scriptableObject);
-
-        }
-
-        foreach(ShopItemValues item in loadedItemValues)
-        {
-            Debug.Log(item);
-        }
-
-        if (loadedItemValues == null)
-        {
-
-            Debug.LogWarning("No item value scriptable objects found at path " + scriptableObjectPath);
-            
+            ShopItemUICreator.INSTANCE.CreateNewUIForItem(item);
         }
 
     }

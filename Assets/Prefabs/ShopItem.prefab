@@ -199,7 +199,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2327649519910343147}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 0
   m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
@@ -1016,7 +1016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3842575dd9ef9d34fade48ae701d2b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiedItem: {fileID: 0}
   buyButton: {fileID: 2327649518196016035}
   itemName: {fileID: 2327649518292615534}
   itemCostText: {fileID: 2327649518456465997}
