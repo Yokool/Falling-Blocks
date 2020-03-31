@@ -63,15 +63,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\DestroyOnCollision.cs" />
-    <Compile Include="Assets\Scripts\FollowObject.cs" />
-    <Compile Include="Assets\Scripts\IBoundsProvider.cs" />
-    <Compile Include="Assets\Scripts\Jump.cs" />
+    <Compile Include="Assets\Scripts\Data\PersistentSavedData.cs" />
+    <Compile Include="Assets\Scripts\Data\SaveSystem.cs" />
+    <Compile Include="Assets\Scripts\Data\SessionData.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IBoundsProvider.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IOnDeath.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IOnTouch.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\Implementations\DecrementHealthOnTouch.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\Implementations\DestroyOnDeath.cs" />
     <Compile Include="Assets\Scripts\LossBoxScript.cs" />
-    <Compile Include="Assets\Scripts\Movement.cs" />
-    <Compile Include="Assets\Scripts\SpawnAbove.cs" />
-    <Compile Include="Assets\Scripts\TileManager.cs" />
-    <Compile Include="Assets\Scripts\TilemapBoundsProvider.cs" />
+    <Compile Include="Assets\Scripts\MainMenuScripts\MainMenuCanvasScript.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\SceneEnum.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ShopAssetManager.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ShopItemUI.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ShopItemValues.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jetpack.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jump.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollision.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\FollowObject.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\HealthTracker.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Movement.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\Score.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\TouchingObject.cs" />
+    <Compile Include="Assets\Scripts\Tilemap\MultiplierTile.cs" />
+    <Compile Include="Assets\Scripts\Tilemap\RemoveFromListOnDeath.cs" />
+    <Compile Include="Assets\Scripts\Tilemap\SpawnAbove.cs" />
+    <Compile Include="Assets\Scripts\Tilemap\TileManager.cs" />
+    <Compile Include="Assets\Scripts\Tilemap\TilemapBoundsProvider.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverUI.cs" />
+    <Compile Include="Assets\Scripts\UI\ScorePrinter.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopItemUICreator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/ederm/Falling Blocks/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

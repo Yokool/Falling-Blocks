@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BreakableT
   - Meteor
+  - Tilemap
   layers:
   - Default
   - TransparentFX

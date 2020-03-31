@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LossBoxScript : MonoBehaviour
 {
 
     public GameObject linkedMap;
 
-
+    public Canvas gameCanvas;
+    public Canvas gameOverCanvas;
 
     void Start()
     {
@@ -35,7 +37,11 @@ public class LossBoxScript : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log("--- YOU LOST ---");
+            gameCanvas.gameObject.SetActive(false);
+            gameOverCanvas.gameObject.SetActive(true);
+
+            gameOverCanvas.GetComponent<GameOverUI>().GameEnded();
+
             return;
         }
 
