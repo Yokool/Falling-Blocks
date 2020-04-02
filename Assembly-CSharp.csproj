@@ -74,9 +74,14 @@
     <Compile Include="Assets\Scripts\LossBoxScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuScripts\MainMenuCanvasScript.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\SceneEnum.cs" />
-    <Compile Include="Assets\Scripts\ShopItems\ShopAssetManager.cs" />
-    <Compile Include="Assets\Scripts\ShopItems\ShopItemUI.cs" />
-    <Compile Include="Assets\Scripts\ShopItems\ShopItemValues.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\IShopOnBuy.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\ItemUpgradeManager.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\Managers\ShopItemUI.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\Managers\ShopSaveSystem.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\OnJetpackShopBuy.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\SaveableJetpackItem.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\SaveableJumpItem.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\SaveableShopItem.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jetpack.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jump.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollision.cs" />

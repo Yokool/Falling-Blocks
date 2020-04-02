@@ -2,33 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopItemValues
+[System.Serializable]
+public class ItemUpgradeManager
 {
     
-    public ShopItemValues(string i_name, string description, int cost, Sprite itemImage, float costIncrementor, int maxUpgradeAmount)
+    public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costIncrementor, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
     {
 
         this.i_name = i_name;
         this.description = description;
         this.cost = cost;
-        this.itemImage = itemImage;
+        this.image = image;
         this.costMultiplier = costIncrementor;
         this.maxUpgradeAmount = maxUpgradeAmount;
 
-    }
+        this.shopOnBuy = shopOnBuy;
 
+    }
 
     private string i_name;
     private string description;
 
     private int cost;
 
-    private Sprite itemImage;
+    private Sprite image;
 
     private float costMultiplier;
 
     private int currentUpgrade = 1;
     private int maxUpgradeAmount;
+
+    [System.NonSerialized]
+    private IShopOnBuy shopOnBuy;
 
     public string I_Name
     {
@@ -62,12 +67,12 @@ public class ShopItemValues
     {
         get
         {
-            return itemImage;
+            return image;
         }
 
         set
         {
-            itemImage = value;
+            image = value;
         }
     }
 
@@ -123,6 +128,19 @@ public class ShopItemValues
             
         }
     }
+
+    public IShopOnBuy ShopOnBuy
+    {
+        get
+        {
+            return shopOnBuy;
+        }
+        set
+        {
+            shopOnBuy = value;
+        }
+    }
+
 
 
 }

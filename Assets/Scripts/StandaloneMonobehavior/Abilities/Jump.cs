@@ -14,6 +14,9 @@ public class Jump : MonoBehaviour
     {
 
         objectRigidBody = GetComponent<Rigidbody>();
+        Jump thisJump = GetComponent<Jump>();
+
+        ShopSaveSystem.SerializedJump.PopulateScript(ref thisJump);
 
     }
 
