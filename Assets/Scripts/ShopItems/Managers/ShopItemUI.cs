@@ -48,7 +48,8 @@ public class ShopItemUI : MonoBehaviour
         itemManager.Cost = (int)((float)itemManager.Cost * itemManager.CostMultiplier);
 
         itemManager.ShopOnBuy.OnBuy();
-
+        itemManager.Save();
+            
         UpdateGUI();
 
     }

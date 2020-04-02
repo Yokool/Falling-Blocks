@@ -1,13 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 [System.Serializable]
 public class ItemUpgradeManager
 {
-    
+
+    public string path;
+
     public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costIncrementor, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
     {
+        this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
+
+        ItemUpgradeManager loaded = Load();
+        if (loaded != null)
+        {
+            i_name = loaded.i_name;
+            description = loaded.description;
+            cost = loaded.cost;
+            image = loaded.image;
+            costMultiplier = loaded.costMultiplier;
+            maxUpgradeAmount = loaded.maxUpgradeAmount;
+        }
 
         this.i_name = i_name;
         this.description = description;
@@ -18,6 +34,8 @@ public class ItemUpgradeManager
 
         this.shopOnBuy = shopOnBuy;
 
+        
+
     }
 
     private string i_name;
@@ -25,6 +43,7 @@ public class ItemUpgradeManager
 
     private int cost;
 
+    [System.NonSerialized]
     private Sprite image;
 
     private float costMultiplier;
@@ -34,6 +53,42 @@ public class ItemUpgradeManager
 
     [System.NonSerialized]
     private IShopOnBuy shopOnBuy;
+
+    public void Save()
+    {
+
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        binaryFormatter.Serialize(fileStream, this);
+
+        fileStream.Close();
+
+    }
+
+    public ItemUpgradeManager Load()
+    {
+
+        if (!File.Exists(path))
+        {
+            return null;
+        }
+
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        FileStream fileStream = new FileStream(path, FileMode.Open);
+
+        if(fileStream.Length == 0)
+        {
+            return null;
+        }
+
+        ItemUpgradeManager loaded = binaryFormatter.Deserialize(fileStream) as ItemUpgradeManager;
+
+        fileStream.Close();
+
+        return loaded;
+
+    }
 
     public string I_Name
     {
