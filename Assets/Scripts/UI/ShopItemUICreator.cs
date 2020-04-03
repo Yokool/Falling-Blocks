@@ -26,23 +26,20 @@ public class ShopItemUICreator : MonoBehaviour
 
         INSTANCE = this;
 
-        foreach (ShopItemValues item in ShopAssetManager.loadedItemValues)
+        foreach(ItemUpgradeManager item in ShopSaveSystem.upgradeManagers)
         {
-
             CreateNewUIForItem(item);
-
-
         }
 
     }
 
-    public void CreateNewUIForItem(ShopItemValues item)
+    public void CreateNewUIForItem(ItemUpgradeManager item)
     {
         GameObject ShopUIItem = Instantiate(shopItemUIPrefab, gameObject.transform);
 
         ShopUIItem.transform.SetParent(gameObject.transform, false);
 
-        ShopUIItem.GetComponent<ShopItemUI>().TiedItem = item;
+        ShopUIItem.GetComponent<ShopItemUI>().ItemManager = item;
     }
 
 }
