@@ -77,7 +77,7 @@ public class ItemUpgradeManager
 
     public bool CanBuy()
     {
-        return ((SaveSystem.dataLoaded.TotalScore <= cost) && (currentUpgrade < maxUpgradeAmount));
+        return ((SaveSystem.dataLoaded.TotalScore >= cost) && (currentUpgrade < maxUpgradeAmount));
     }
 
     public void BuyItem()
