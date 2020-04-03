@@ -14,23 +14,33 @@ public class ItemUpgradeManager
     {
         this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
 
+        int upgradeTracker = 1;
+
         ItemUpgradeManager loaded = Load();
         if (loaded != null)
         {
             i_name = loaded.i_name;
             description = loaded.description;
+
             cost = loaded.cost;
-            image = loaded.image;
             costMultiplier = loaded.costMultiplier;
+
+            upgradeTracker = loaded.currentUpgrade;
             maxUpgradeAmount = loaded.maxUpgradeAmount;
         }
 
         this.i_name = i_name;
         this.description = description;
-        this.cost = cost;
+
         this.image = image;
+
+        this.cost = cost;
         this.costMultiplier = costIncrementor;
+
+        this.currentUpgrade = upgradeTracker;
         this.maxUpgradeAmount = maxUpgradeAmount;
+
+
 
         this.shopOnBuy = shopOnBuy;
 
@@ -48,7 +58,7 @@ public class ItemUpgradeManager
 
     private float costMultiplier;
 
-    private int currentUpgrade = 1;
+    private int currentUpgrade;
     private int maxUpgradeAmount;
 
     [System.NonSerialized]

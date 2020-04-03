@@ -32,10 +32,16 @@ public class ShopItemUI : MonoBehaviour
     private void Start()
     {
         buyButton.onClick.AddListener(OnBuy);
+        UpdateGUI();
     }
 
     public void OnBuy()
     {
+
+        if(itemManager.CurrentUpgrade >= itemManager.MaxUpgradeAmount)
+        {
+            return;
+        }
 
         if (SaveSystem.dataLoaded.TotalScore <= itemManager.Cost) // Not enough money
         {
