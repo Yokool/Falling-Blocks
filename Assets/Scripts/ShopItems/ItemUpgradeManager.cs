@@ -7,16 +7,13 @@ using UnityEngine;
 [System.Serializable]
 public class ItemUpgradeManager
 {
-
-    public string path;
-
     public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costIncrementor, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
     {
         this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
 
         int upgradeTracker = 1;
 
-        ItemUpgradeManager loaded = Load();
+        ItemUpgradeManager loaded = Load(path);
         if (loaded != null)
         {
             i_name = loaded.i_name;
@@ -44,9 +41,11 @@ public class ItemUpgradeManager
 
         this.shopOnBuy = shopOnBuy;
 
-        
+
 
     }
+
+    public string path;
 
     private string i_name;
     private string description;
@@ -64,19 +63,40 @@ public class ItemUpgradeManager
     [System.NonSerialized]
     private IShopOnBuy shopOnBuy;
 
-    public void Save()
+    public static void Save(string path, ItemUpgradeManager itemUpgradeManager)
     {
 
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        binaryFormatter.Serialize(fileStream, this);
+        binaryFormatter.Serialize(fileStream, itemUpgradeManager);
 
         fileStream.Close();
 
     }
 
-    public ItemUpgradeManager Load()
+    public bool CanBuy()
+    {
+        return ((SaveSystem.dataLoaded.TotalScore <= cost) && (currentUpgrade < maxUpgradeAmount));
+    }
+
+    public void BuyItem()
+    {
+        if (!CanBuy())
+        {
+            return;
+        }
+        ++CurrentUpgrade;
+
+        SaveSystem.dataLoaded.TotalScore -= Cost;
+        Cost = (int)((float)Cost * CostMultiplier);
+
+        ShopOnBuy.OnBuy();
+
+        ItemUpgradeManager.Save(path, this);
+    }
+
+    public static ItemUpgradeManager Load(string path)
     {
 
         if (!File.Exists(path))
@@ -87,7 +107,7 @@ public class ItemUpgradeManager
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream fileStream = new FileStream(path, FileMode.Open);
 
-        if(fileStream.Length == 0)
+        if (fileStream.Length == 0)
         {
             return null;
         }

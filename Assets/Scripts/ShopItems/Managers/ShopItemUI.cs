@@ -37,27 +37,8 @@ public class ShopItemUI : MonoBehaviour
 
     public void OnBuy()
     {
-
-        if(itemManager.CurrentUpgrade >= itemManager.MaxUpgradeAmount)
-        {
-            return;
-        }
-
-        if (SaveSystem.dataLoaded.TotalScore <= itemManager.Cost) // Not enough money
-        {
-            return;
-        }
-
-        ++itemManager.CurrentUpgrade;
-
-        SaveSystem.dataLoaded.TotalScore -= itemManager.Cost;
-        itemManager.Cost = (int)((float)itemManager.Cost * itemManager.CostMultiplier);
-
-        itemManager.ShopOnBuy.OnBuy();
-        itemManager.Save();
-            
+        itemManager.BuyItem();  
         UpdateGUI();
-
     }
 
     public void UpdateGUI()
