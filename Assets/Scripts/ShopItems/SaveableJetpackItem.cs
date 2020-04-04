@@ -5,21 +5,24 @@ using UnityEngine;
 [System.Serializable]
 public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 {
-
-    private const float jetpackRefuelIncrement_DEFAULT = 0.0025f;
-    private const float jetpackSpendFuelDecrement_DEFAULT = 0.05f;
-    private const float maxFuel_DEFAULT = 10f;
-    private const float jetpackStrength_DEFAULT = 5f;
-
-
     public float jetpackRefuelIncrement;
-    public float jetpackSpendFuelDecrement;
-    public float maxFuel;
-    public float jetpackStrength;
+    private float jetpackRefuelIncrement_DEFAULT;
 
-    public SaveableJetpackItem(string path) : base(path)
+    public float jetpackSpendFuelDecrement;
+    private float jetpackSpendFuelDecrement_DEFAULT;
+
+    public float maxFuel;
+    private float maxFuel_DEFAULT;
+
+    public float jetpackStrength;
+    private float jetpackStrength_DEFAULT;
+
+    public SaveableJetpackItem(string path, float jetpackRefuelIncrement_DEFAULT, float jetpackSpendFuelDecrement_DEFAULT, float maxFuel_DEFAULT, float jetpackStrength_DEFAULT) : base(path)
     {
-        
+        this.jetpackRefuelIncrement_DEFAULT = jetpackRefuelIncrement_DEFAULT;
+        this.jetpackSpendFuelDecrement_DEFAULT = jetpackSpendFuelDecrement_DEFAULT;
+        this.maxFuel_DEFAULT = maxFuel_DEFAULT;
+        this.jetpackStrength_DEFAULT = jetpackStrength_DEFAULT;
     }
 
     public override void LoadValuesFromFile()
@@ -57,7 +60,6 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
         this.jetpackSpendFuelDecrement = script.jetpackSpendFuelDecrement;
         this.maxFuel = script.maxFuel;
         this.jetpackStrength = script.jetpackStrength;
-
 
     }
 }

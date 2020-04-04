@@ -23,9 +23,8 @@ public static class ShopSaveSystem
     private static void CreateItems()
     {
 
-        SerializedJetpack = new SaveableJetpackItem("/Jetpack.shopitem");
-
-        SerializedJump = new SaveableJumpItem("/Jump.shopitem");
+        SerializedJetpack = new SaveableJetpackItem("/Jetpack.shopitem", 0.0025f, 0.05f, 10f, 5f);
+        SerializedJump = new SaveableJumpItem("/Jump.shopitem", 250);
 
     }
 
