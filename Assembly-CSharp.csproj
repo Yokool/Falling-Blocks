@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\ShopItems\Managers\ShopItemUI.cs" />
     <Compile Include="Assets\Scripts\ShopItems\Managers\ShopSaveSystem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\JetpackOnBuyCollection.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\JumpOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJetpackItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJumpItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableShopItem.cs" />

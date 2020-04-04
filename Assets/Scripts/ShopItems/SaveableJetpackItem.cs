@@ -46,7 +46,6 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 
     public override void PopulateScript(ref Jetpack script)
     {
-
         script.jetpackRefuelIncrement = jetpackRefuelIncrement;
         script.jetpackSpendFuelDecrement = jetpackSpendFuelDecrement;
         script.maxFuel = maxFuel;
