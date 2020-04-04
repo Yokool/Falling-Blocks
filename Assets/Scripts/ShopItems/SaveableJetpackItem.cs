@@ -15,7 +15,6 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
     public float jetpackRefuelIncrement;
     public float jetpackSpendFuelDecrement;
     public float maxFuel;
-
     public float jetpackStrength;
 
     public SaveableJetpackItem(string path) : base(path)
@@ -44,24 +43,21 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 
     }
 
-    public override void PopulateScript(ref Jetpack script)
+    public override void PopulateScript(Jetpack script)
     {
-        script.jetpackRefuelIncrement = jetpackRefuelIncrement;
-        script.jetpackSpendFuelDecrement = jetpackSpendFuelDecrement;
-        script.maxFuel = maxFuel;
-        script.jetpackStrength = jetpackStrength;
-
+        script.jetpackRefuelIncrement = this.jetpackRefuelIncrement;
+        script.jetpackSpendFuelDecrement = this.jetpackSpendFuelDecrement;
+        script.maxFuel = this.maxFuel;
+        script.jetpackStrength = this.jetpackStrength;
     }
 
     public override void SetValues(Jetpack script)
     {
-
         this.jetpackRefuelIncrement = script.jetpackRefuelIncrement;
         this.jetpackSpendFuelDecrement = script.jetpackSpendFuelDecrement;
         this.maxFuel = script.maxFuel;
         this.jetpackStrength = script.jetpackStrength;
 
+
     }
-
-
 }

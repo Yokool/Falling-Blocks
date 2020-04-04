@@ -21,7 +21,7 @@ public class Jetpack : MonoBehaviour
         objectRigidBody = GetComponent<Rigidbody>();
 
         Jetpack thisJetpack = GetComponent<Jetpack>();
-        ShopSaveSystem.SerializedJetpack.PopulateScript(ref thisJetpack);
+        ShopSaveSystem.SerializedJetpack.PopulateScript(thisJetpack);
 
     }
 

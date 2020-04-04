@@ -27,6 +27,7 @@ public class Jetpack_Maxfuel_Buy : IShopOnBuy
     public void OnBuy()
     {
         ShopSaveSystem.SerializedJetpack.maxFuel += 1f;
+        ShopSaveSystem.SerializedJetpack.SaveToFile();
     }
 }
 
@@ -35,5 +36,6 @@ public class Jetpack_Strength_Buy : IShopOnBuy
     public void OnBuy()
     {
         ShopSaveSystem.SerializedJetpack.jetpackStrength += 0.1f;
+        ShopSaveSystem.SerializedJetpack.SaveToFile();
     }
 }

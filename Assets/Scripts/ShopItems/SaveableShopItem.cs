@@ -68,7 +68,7 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// <returns></returns>
     protected object LoadAssociatedFile()
     {
-        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.Create);
+        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.Open);
         BinaryFormatter binaryFormatter = new BinaryFormatter();
 
         if(fileStream.Length == 0)
@@ -98,7 +98,7 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// Sets the values of the compatible script with the values currently stored inside the object.
     /// </summary>
     /// <param name="script"></param>
-    public abstract void PopulateScript(ref T script);
+    public abstract void PopulateScript(T script);
 
 
 }

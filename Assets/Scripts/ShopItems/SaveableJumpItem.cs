@@ -32,7 +32,7 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
 
     }
 
-    public override void PopulateScript(ref Jump script)
+    public override void PopulateScript(Jump script)
     {
         this.jumpHeight = script.jumpHeight;
     }

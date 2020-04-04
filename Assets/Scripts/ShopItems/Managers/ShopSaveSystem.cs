@@ -46,6 +46,7 @@ public static class ShopSaveSystem
         upgradeManagers.Add(Jetpack_Maxfuel_Manager);
         upgradeManagers.Add(Jetpack_Strength_Manager);
 
+        upgradeManagers.Add(Jump_Strength_Manager);
 
     }
 

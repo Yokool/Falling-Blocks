@@ -7,5 +7,6 @@ public class Jump_Strength_Buy : IShopOnBuy
     public void OnBuy()
     {
         ShopSaveSystem.SerializedJump.jumpHeight += 25;
+        ShopSaveSystem.SerializedJump.SaveToFile();
     }
 }
