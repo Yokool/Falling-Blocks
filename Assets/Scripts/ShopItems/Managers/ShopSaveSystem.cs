@@ -11,7 +11,7 @@ public static class ShopSaveSystem
 
     public static List<ItemUpgradeManager> upgradeManagers = new List<ItemUpgradeManager>();
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void InitializeItemSaveSystem()
     {
 
