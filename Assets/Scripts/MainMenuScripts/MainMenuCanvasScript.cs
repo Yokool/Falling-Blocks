@@ -48,6 +48,7 @@ public class MainMenuCanvasScript : MonoBehaviour
     private void OnPlayPress()
     {
         HideMainMenu();
+        PlayManager.INSTANCE.NewGame();
     }
 
     private void ExitGame()

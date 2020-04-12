@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
-        
+        scoreMultiplier = ShopSaveSystem.SerializedScore.scoreMultiplier;
     }
 
     void Update()

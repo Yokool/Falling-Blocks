@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
 {
     
-    public PlayManager INSTANCE { get; private set; }
+    public static PlayManager INSTANCE { get; private set; }
 
     public PlayManager()
     {
@@ -14,7 +15,7 @@ public class PlayManager : MonoBehaviour
 
     public void NewGame()
     {
-
+        SceneManager.LoadScene((int)SceneEnum.GAME_SCENE, LoadSceneMode.Single);
     }
 
 
