@@ -9,6 +9,8 @@ public static class ShopSaveSystem
 
     public static SaveableJumpItem SerializedJump;
 
+    public static SaveableLevelItem SerializedLevel;
+
     public static List<ItemUpgradeManager> upgradeManagers = new List<ItemUpgradeManager>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -25,7 +27,7 @@ public static class ShopSaveSystem
 
         SerializedJetpack = new SaveableJetpackItem("/Jetpack.shopitem", 0.0025f, 0.05f, 10f, 5f);
         SerializedJump = new SaveableJumpItem("/Jump.shopitem", 250);
-
+        SerializedLevel = new SaveableLevelItem("/Level.shopitem", 5, 5);
     }
 
     private static void CreateItemManagers()
@@ -39,6 +41,8 @@ public static class ShopSaveSystem
 
         ItemUpgradeManager Jump_Strength_Manager = new ItemUpgradeManager("1-year fitness pass", "Not skipping leg day for a single year straight will allow you to jump sligthtly higher.", 100, null, 1.1f, 10, new Jump_Strength_Buy());
 
+        ItemUpgradeManager Level_Width_Manager = new ItemUpgradeManager("Level Width", "Increase the width of your playing field", 100, null, 1.1f, 100, new LevelOnBuyWidth());
+        ItemUpgradeManager Level_Height_Manager = new ItemUpgradeManager("Level Height", "Increase the height of your playing field", 100, null, 1.1f, 100, new LevelOnBuyHeight());
 
         upgradeManagers.Add(Jetpack_Refuel_Manager);
         upgradeManagers.Add(Jetpack_SpendfuelDecrement_Manager);
@@ -46,6 +50,9 @@ public static class ShopSaveSystem
         upgradeManagers.Add(Jetpack_Strength_Manager);
 
         upgradeManagers.Add(Jump_Strength_Manager);
+
+        upgradeManagers.Add(Level_Width_Manager);
+        upgradeManagers.Add(Level_Height_Manager);
 
     }
 

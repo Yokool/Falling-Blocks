@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainMenuCanvasScript : MonoBehaviour
 {
+    public static MainMenuCanvasScript Instance { get; private set; }
 
     public Button playButton;
     public Button exitButton;
@@ -13,7 +14,9 @@ public class MainMenuCanvasScript : MonoBehaviour
     public Button optionsButton;
 
     public Canvas optionsCanvas;
-    public Canvas shopCanvas;
+
+    
+
 
     void Start()
     {
@@ -26,7 +29,18 @@ public class MainMenuCanvasScript : MonoBehaviour
 
     }
 
-    private void HideMainMenu()
+    public MainMenuCanvasScript()
+    {
+        Instance = this;
+    }
+
+
+    public void ShowMainMenu()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void HideMainMenu()
     {
         gameObject.SetActive(false);
     }
@@ -34,7 +48,6 @@ public class MainMenuCanvasScript : MonoBehaviour
     private void OnPlayPress()
     {
         HideMainMenu();
-
     }
 
     private void ExitGame()
@@ -48,7 +61,7 @@ public class MainMenuCanvasScript : MonoBehaviour
     private void GoToShop()
     {
         HideMainMenu();
-        shopButton.gameObject.SetActive(true);
+        ShopCanvasScript.INSTANCE.ShowShop();
     }
 
     private void GoToOptions()
