@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,9 +22,9 @@ public class ShopItemUI : MonoBehaviour
 
     public Button buyButton;
 
-    public Text itemName;
-    public Text itemCostText;
-    public Text itemDescriptionText;
+    public TextMeshProUGUI itemName;
+    public TextMeshProUGUI itemCostText;
+    public TextMeshProUGUI itemDescriptionText;
 
     public Slider upgradeSlider;
 

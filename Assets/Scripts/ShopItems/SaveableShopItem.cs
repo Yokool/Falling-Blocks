@@ -42,13 +42,14 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
         }
         else
         {
+            LoadDefaultValues();
             SaveToFile();
         }
 
     }
     /// <summary>
     /// Serializes the object into a file.
-    /// SHOULD NOT BE CALLED!
+    /// DO NOT CALL THIS ON YOUR OWN
     /// </summary>
     public void SaveToFile()
     {
@@ -68,7 +69,7 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// <returns></returns>
     protected object LoadAssociatedFile()
     {
-        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.Create);
+        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.Open);
         BinaryFormatter binaryFormatter = new BinaryFormatter();
 
         if(fileStream.Length == 0)
@@ -98,7 +99,10 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// Sets the values of the compatible script with the values currently stored inside the object.
     /// </summary>
     /// <param name="script"></param>
-    public abstract void PopulateScript(ref T script);
-
+    public abstract void PopulateScript(T script);
+    /// <summary>
+    /// Loads the default values for a script, when the serialized file can't be found.
+    /// </summary>
+    public abstract void LoadDefaultValues();
 
 }

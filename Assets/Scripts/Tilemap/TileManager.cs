@@ -19,6 +19,8 @@ public class TileManager : MonoBehaviour
     public void Start()
     {
 
+        ShopSaveSystem.SerializedLevel.PopulateScript(this);
+
         GenerateGround();
         GenerateWalls();
 
