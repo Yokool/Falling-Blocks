@@ -42,13 +42,14 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
         }
         else
         {
+            LoadDefaultValues();
             SaveToFile();
         }
 
     }
     /// <summary>
     /// Serializes the object into a file.
-    /// SHOULD NOT BE CALLED!
+    /// DO NOT CALL THIS ON YOUR OWN
     /// </summary>
     public void SaveToFile()
     {
@@ -99,6 +100,9 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// </summary>
     /// <param name="script"></param>
     public abstract void PopulateScript(T script);
-
+    /// <summary>
+    /// Loads the default values for a script, when the serialized file can't be found.
+    /// </summary>
+    public abstract void LoadDefaultValues();
 
 }

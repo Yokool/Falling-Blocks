@@ -21,12 +21,7 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
     public override void LoadValuesFromFile()
     {
         SaveableLevelItem saveableLevelItem = LoadAssociatedFile() as SaveableLevelItem;
-        if(saveableLevelItem == null)
-        {
-            levelWidth = levelWidth_DEFAULT;
-            levelHeight = levelHeight_DEFAULT;
-            return;
-        }
+        
         levelWidth = saveableLevelItem.levelWidth;
         levelHeight = saveableLevelItem.levelHeight;
     }
@@ -40,6 +35,12 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
     {
         this.levelWidth = (int)script.mapSize.x;
         this.levelHeight = (int)script.mapSize.y;
+    }
+
+    public override void LoadDefaultValues()
+    {
+        levelWidth = levelWidth_DEFAULT;
+        levelHeight = levelHeight_DEFAULT;
     }
 
 }

@@ -21,12 +21,6 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
     {
         SaveableJumpItem thisItem = LoadAssociatedFile() as SaveableJumpItem;
 
-        if(thisItem == null)
-        {
-            jumpHeight = jumpHeight_DEFAULT;
-            
-            return;
-        }
 
         jumpHeight = thisItem.jumpHeight;
 
@@ -34,11 +28,16 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
 
     public override void PopulateScript(Jump script)
     {
-        this.jumpHeight = script.jumpHeight;
+        script.jumpHeight = this.jumpHeight;
     }
 
     public override void SetValues(Jump script)
     {
-        script.jumpHeight = this.jumpHeight;
+        this.jumpHeight = script.jumpHeight;
+    }
+
+    public override void LoadDefaultValues()
+    {
+        jumpHeight = jumpHeight_DEFAULT;
     }
 }

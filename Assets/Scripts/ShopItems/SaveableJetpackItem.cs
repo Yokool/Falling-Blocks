@@ -30,15 +30,6 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 
         SaveableJetpackItem thisItem = LoadAssociatedFile() as SaveableJetpackItem;
 
-        if (thisItem == null) // The file was empty.
-        {
-            jetpackRefuelIncrement = jetpackRefuelIncrement_DEFAULT;
-            jetpackSpendFuelDecrement = jetpackSpendFuelDecrement_DEFAULT;
-            maxFuel = maxFuel_DEFAULT;
-            jetpackStrength = jetpackStrength_DEFAULT;
-            return;
-        }
-
         jetpackRefuelIncrement = thisItem.jetpackRefuelIncrement;
         jetpackSpendFuelDecrement = thisItem.jetpackSpendFuelDecrement;
         maxFuel = thisItem.maxFuel;
@@ -61,5 +52,13 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
         this.maxFuel = script.maxFuel;
         this.jetpackStrength = script.jetpackStrength;
 
+    }
+
+    public override void LoadDefaultValues()
+    {
+        jetpackRefuelIncrement = jetpackRefuelIncrement_DEFAULT;
+        jetpackSpendFuelDecrement = jetpackSpendFuelDecrement_DEFAULT;
+        maxFuel = maxFuel_DEFAULT;
+        jetpackStrength = jetpackStrength_DEFAULT;
     }
 }

@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\JumpOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\LevelOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\ScoreOnBuyCollection.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\SaveableDefaultValues.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJetpackItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJumpItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableLevelItem.cs" />
