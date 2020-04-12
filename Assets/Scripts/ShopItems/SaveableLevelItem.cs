@@ -7,15 +7,14 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
 {
 
     public int levelWidth;
-    private int levelWidth_DEFAULT;
+    
 
     public int levelHeight;
-    private int levelHeight_DEFAULT;
+    
 
-    public SaveableLevelItem(string path, int levelWidth, int levelHeight) : base(path)
+    public SaveableLevelItem(string path) : base(path)
     {
-        this.levelWidth_DEFAULT = levelWidth;
-        this.levelHeight_DEFAULT = levelHeight;
+
     }
 
     public override void LoadValuesFromFile()
@@ -39,8 +38,8 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
 
     public override void LoadDefaultValues()
     {
-        levelWidth = levelWidth_DEFAULT;
-        levelHeight = levelHeight_DEFAULT;
+        levelWidth = SaveableDefaultValues.levelWidth_DEFAULT;
+        levelHeight = SaveableDefaultValues.levelHeight_DEFAULT;
     }
 
 }

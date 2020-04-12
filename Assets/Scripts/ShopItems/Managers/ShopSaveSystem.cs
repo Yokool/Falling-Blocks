@@ -15,6 +15,8 @@ public static class ShopSaveSystem
 
     public static List<ItemUpgradeManager> upgradeManagers = new List<ItemUpgradeManager>();
 
+    
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void InitializeItemSaveSystem()
     {
@@ -27,10 +29,10 @@ public static class ShopSaveSystem
     private static void CreateItems()
     {
 
-        SerializedJetpack = new SaveableJetpackItem("/Jetpack.shopitem", 0.0025f, 0.05f, 10f, 5f);
-        SerializedJump = new SaveableJumpItem("/Jump.shopitem", 250);
-        SerializedLevel = new SaveableLevelItem("/Level.shopitem", 5, 5);
-        SerializedScore = new SaveableScoreItem("/Score.shopitem", 1);
+        SerializedJetpack = new SaveableJetpackItem("/Jetpack.shopitem");
+        SerializedJump = new SaveableJumpItem("/Jump.shopitem");
+        SerializedLevel = new SaveableLevelItem("/Level.shopitem");
+        SerializedScore = new SaveableScoreItem("/Score.shopitem");
 
     }
 

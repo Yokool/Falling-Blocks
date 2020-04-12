@@ -24,6 +24,11 @@ public class ItemUpgradeManager
 
             upgradeTracker = loaded.currentUpgrade;
             maxUpgradeAmount = loaded.maxUpgradeAmount;
+
+            this.image = image;
+            this.shopOnBuy = shopOnBuy;
+
+            return;
         }
 
         this.i_name = i_name;
@@ -37,11 +42,9 @@ public class ItemUpgradeManager
         this.currentUpgrade = upgradeTracker;
         this.maxUpgradeAmount = maxUpgradeAmount;
 
-
-
         this.shopOnBuy = shopOnBuy;
 
-
+        ItemUpgradeManager.Save(this.path, this);
 
     }
 

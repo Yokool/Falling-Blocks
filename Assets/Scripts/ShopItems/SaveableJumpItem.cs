@@ -6,15 +6,15 @@ using UnityEngine;
 public class SaveableJumpItem : SaveableShopItem<Jump>
 {
 
-    private float jumpHeight_DEFAULT;
+    
 
     public float jumpHeight;
 
 
 
-    public SaveableJumpItem(string path, float jumpHeight_DEFAULT) : base(path)
+    public SaveableJumpItem(string path) : base(path)
     {
-        this.jumpHeight_DEFAULT = jumpHeight_DEFAULT;
+
     }
 
     public override void LoadValuesFromFile()
@@ -38,6 +38,6 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
 
     public override void LoadDefaultValues()
     {
-        jumpHeight = jumpHeight_DEFAULT;
+        jumpHeight = SaveableDefaultValues.jumpHeight_DEFAULT;
     }
 }

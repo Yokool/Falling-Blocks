@@ -6,23 +6,20 @@ using UnityEngine;
 public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 {
     public float jetpackRefuelIncrement;
-    private float jetpackRefuelIncrement_DEFAULT;
+    
 
     public float jetpackSpendFuelDecrement;
-    private float jetpackSpendFuelDecrement_DEFAULT;
+    
 
     public float maxFuel;
-    private float maxFuel_DEFAULT;
+    
 
     public float jetpackStrength;
-    private float jetpackStrength_DEFAULT;
+    
 
-    public SaveableJetpackItem(string path, float jetpackRefuelIncrement_DEFAULT, float jetpackSpendFuelDecrement_DEFAULT, float maxFuel_DEFAULT, float jetpackStrength_DEFAULT) : base(path)
+    public SaveableJetpackItem(string path) : base(path)
     {
-        this.jetpackRefuelIncrement_DEFAULT = jetpackRefuelIncrement_DEFAULT;
-        this.jetpackSpendFuelDecrement_DEFAULT = jetpackSpendFuelDecrement_DEFAULT;
-        this.maxFuel_DEFAULT = maxFuel_DEFAULT;
-        this.jetpackStrength_DEFAULT = jetpackStrength_DEFAULT;
+        
     }
 
     public override void LoadValuesFromFile()
@@ -56,9 +53,9 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 
     public override void LoadDefaultValues()
     {
-        jetpackRefuelIncrement = jetpackRefuelIncrement_DEFAULT;
-        jetpackSpendFuelDecrement = jetpackSpendFuelDecrement_DEFAULT;
-        maxFuel = maxFuel_DEFAULT;
-        jetpackStrength = jetpackStrength_DEFAULT;
+        jetpackRefuelIncrement = SaveableDefaultValues.jetpackRefuelIncrement_DEFAULT;
+        jetpackSpendFuelDecrement = SaveableDefaultValues.jetpackSpendFuelDecrement_DEFAULT;
+        maxFuel = SaveableDefaultValues.maxFuel_DEFAULT;
+        jetpackStrength = SaveableDefaultValues.jetpackStrength_DEFAULT;
     }
 }

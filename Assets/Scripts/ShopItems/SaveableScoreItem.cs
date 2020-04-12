@@ -5,11 +5,11 @@ using UnityEngine;
 public class SaveableScoreItem : SaveableShopItem<Score>
 {
     public float scoreMultiplier;
-    public float scoreMultiplier_DEFAULT;
+    
 
-    public SaveableScoreItem(string path, float scoreMultiplier) : base(path)
+    public SaveableScoreItem(string path) : base(path)
     {
-        scoreMultiplier_DEFAULT = scoreMultiplier;
+
     }
 
     public override void LoadValuesFromFile()
@@ -30,7 +30,7 @@ public class SaveableScoreItem : SaveableShopItem<Score>
 
     public override void LoadDefaultValues()
     {
-        scoreMultiplier = scoreMultiplier_DEFAULT;
+        scoreMultiplier = SaveableDefaultValues.scoreMultiplier_DEFAULT;
     }
 
 }
