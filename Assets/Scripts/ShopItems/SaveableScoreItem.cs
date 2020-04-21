@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
 [System.Serializable]
 public class SaveableScoreItem : SaveableShopItem<Score>
 {
     public float scoreMultiplier;
     
+    public SaveableScoreItem()
+    {
 
+    }
     public SaveableScoreItem(string path) : base(path)
     {
 
@@ -14,7 +19,10 @@ public class SaveableScoreItem : SaveableShopItem<Score>
 
     public override void LoadValuesFromFile()
     {
-        SaveableScoreItem item = LoadAssociatedFile() as SaveableScoreItem;
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableScoreItem));
+        FileStream stream = LoadAssociatedFile();
+        SaveableScoreItem item = xmlSerializer.Deserialize(stream) as SaveableScoreItem;
+        stream.Close();
         this.scoreMultiplier = item.scoreMultiplier;
     }
 
@@ -31,6 +39,14 @@ public class SaveableScoreItem : SaveableShopItem<Score>
     public override void LoadDefaultValues()
     {
         scoreMultiplier = SaveableDefaultValues.scoreMultiplier_DEFAULT;
+    }
+
+    public override void SaveToFile()
+    {
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableScoreItem));
+        FileStream stream = LoadAssociatedFile();
+        xmlSerializer.Serialize(stream, this);
+        stream.Close();
     }
 
 }

@@ -38,7 +38,6 @@ public class ShopItemUICreator : MonoBehaviour
         GameObject ShopUIItem = Instantiate(shopItemUIPrefab, gameObject.transform);
 
         ShopUIItem.transform.SetParent(gameObject.transform, false);
-
         ShopUIItem.GetComponent<ShopItemUI>().ItemManager = item;
     }
 
