@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jetpack.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jump.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollision.cs" />
+    <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollisionWParticles.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\FollowObject.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\HealthTracker.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Movement.cs" />

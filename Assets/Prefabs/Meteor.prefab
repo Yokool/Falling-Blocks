@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 92897077257569448}
   - component: {fileID: 6388686476280325744}
   - component: {fileID: -6235100675093617584}
-  - component: {fileID: 8946321783568150834}
+  - component: {fileID: 9075339675137521038}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Meteor
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8946321783568150834
+--- !u!114 &9075339675137521038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,10 +121,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 956131074171708406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245883ca8a1aef04fb7e9c6778969589, type: 3}
+  m_Script: {fileID: 11500000, guid: dcc040d340a056b4ea1703c60cb66335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 69487852193060688, guid: 117db8dd571547d42b66452cbc8908ef,
+    type: 3}
+  explosionParticle: {fileID: 364859312651194279, guid: 8d6491aec0b7e4c43accd1f7716c87b9,
     type: 3}
 --- !u!54 &1533047660472920516
 Rigidbody:

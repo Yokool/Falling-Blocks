@@ -7,7 +7,7 @@ public class DestroyOnCollision : MonoBehaviour
 
     public Transform objectToDestroy;
 
-    public void OnCollisionEnter(Collision collision)
+    public virtual void OnCollisionEnter(Collision collision)
     {
 
         if (collision.gameObject.tag.Equals(objectToDestroy.tag))
