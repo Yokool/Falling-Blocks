@@ -27,7 +27,6 @@ public class ItemUpgradeManager
 
             this.image = image;
             this.shopOnBuy = shopOnBuy;
-
             return;
         }
 
