@@ -44,6 +44,7 @@ public class ShopItemUI : MonoBehaviour
 
     public void UpdateGUI()
     {
+
         itemName.text = itemManager.I_Name;
         itemCostText.text = System.Convert.ToString(itemManager.Cost);
         itemDescriptionText.text = itemManager.Description;

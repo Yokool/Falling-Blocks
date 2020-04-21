@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
 
 [System.Serializable]
@@ -12,6 +14,11 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
     public int levelHeight;
     
 
+    public SaveableLevelItem()
+    {
+
+    }
+
     public SaveableLevelItem(string path) : base(path)
     {
 
@@ -19,7 +26,10 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
 
     public override void LoadValuesFromFile()
     {
-        SaveableLevelItem saveableLevelItem = LoadAssociatedFile() as SaveableLevelItem;
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableLevelItem));
+        FileStream stream = LoadAssociatedFile();
+        SaveableLevelItem saveableLevelItem = xmlSerializer.Deserialize(stream) as SaveableLevelItem;
+        stream.Close();
         
         levelWidth = saveableLevelItem.levelWidth;
         levelHeight = saveableLevelItem.levelHeight;
@@ -42,4 +52,11 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
         levelHeight = SaveableDefaultValues.levelHeight_DEFAULT;
     }
 
+    public override void SaveToFile()
+    {
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableLevelItem));
+        FileStream stream = LoadAssociatedFile();
+        xmlSerializer.Serialize(stream, this);
+        stream.Close();
+    }
 }

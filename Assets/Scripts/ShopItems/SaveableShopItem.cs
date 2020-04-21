@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using UnityEngine;
 /// <summary>
 /// 
@@ -28,9 +29,16 @@ using UnityEngine;
 public abstract class SaveableShopItem<T> where T : MonoBehaviour
 {
 
-
+    [XmlIgnore]
     protected string filePath;
 
+    /// <summary>
+    /// USED ONLY DURING DESERIALIZATION
+    /// </summary>
+    public SaveableShopItem()
+    {
+
+    }
 
     public SaveableShopItem(string filePath)
     {
@@ -51,37 +59,17 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// Serializes the object into a file.
     /// DO NOT CALL THIS ON YOUR OWN
     /// </summary>
-    public void SaveToFile()
-    {
+    public abstract void SaveToFile();
 
-        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.Create);
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-
-        binaryFormatter.Serialize(fileStream, this);
-
-        fileStream.Close();
-
-    }
     /// <summary>
     /// Deserializes the class. Should be used by LoadValuesFromFile for easy access to stored data.
     /// Should not be used anywhere else in the code.
     /// </summary>
     /// <returns></returns>
-    protected object LoadAssociatedFile()
+    protected FileStream LoadAssociatedFile()
     {
-        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.Open);
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-
-        if(fileStream.Length == 0)
-        {
-            return null;
-        }
-
-        object loaded = binaryFormatter.Deserialize(fileStream);
-
-        fileStream.Close();
-
-        return loaded;
+        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.OpenOrCreate);
+        return fileStream;
 
     }
     /// <summary>

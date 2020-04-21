@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using UnityEngine;
 
 [System.Serializable]
 public class ItemUpgradeManager
 {
+    /// <summary>
+    /// USED ONLY DURING SERIALIZATION
+    /// </summary>
+    public ItemUpgradeManager()
+    {
+
+    }
     public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costIncrementor, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
     {
         this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
@@ -16,14 +24,14 @@ public class ItemUpgradeManager
         ItemUpgradeManager loaded = Load(path);
         if (loaded != null)
         {
-            i_name = loaded.i_name;
-            description = loaded.description;
+            this.i_name = loaded.i_name;
+            this.description = loaded.description;
 
-            cost = loaded.cost;
-            costMultiplier = loaded.costMultiplier;
+            this.cost = loaded.cost;
+            this.costMultiplier = loaded.costMultiplier;
 
-            upgradeTracker = loaded.currentUpgrade;
-            maxUpgradeAmount = loaded.maxUpgradeAmount;
+            this.currentUpgrade = loaded.currentUpgrade;
+            this.maxUpgradeAmount = loaded.maxUpgradeAmount;
 
             this.image = image;
             this.shopOnBuy = shopOnBuy;
@@ -46,7 +54,7 @@ public class ItemUpgradeManager
         ItemUpgradeManager.Save(this.path, this);
 
     }
-
+    [XmlIgnore]
     public string path;
 
     private string i_name;
@@ -54,7 +62,6 @@ public class ItemUpgradeManager
 
     private int cost;
 
-    [System.NonSerialized]
     private Sprite image;
 
     private float costMultiplier;
@@ -62,19 +69,18 @@ public class ItemUpgradeManager
     private int currentUpgrade;
     private int maxUpgradeAmount;
 
-    [System.NonSerialized]
+    [XmlIgnore]
     private IShopOnBuy shopOnBuy;
 
     public static void Save(string path, ItemUpgradeManager itemUpgradeManager)
     {
 
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        XmlSerializer binaryFormatter = new XmlSerializer(typeof(ItemUpgradeManager));
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         binaryFormatter.Serialize(fileStream, itemUpgradeManager);
 
         fileStream.Close();
-
     }
 
     public bool CanBuy()
@@ -106,13 +112,8 @@ public class ItemUpgradeManager
             return null;
         }
 
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        XmlSerializer binaryFormatter = new XmlSerializer(typeof(ItemUpgradeManager));
         FileStream fileStream = new FileStream(path, FileMode.Open);
-
-        if (fileStream.Length == 0)
-        {
-            return null;
-        }
 
         ItemUpgradeManager loaded = binaryFormatter.Deserialize(fileStream) as ItemUpgradeManager;
 
@@ -150,6 +151,7 @@ public class ItemUpgradeManager
 
     }
 
+    [XmlIgnore]
     public Sprite ItemImage
     {
         get
@@ -216,6 +218,7 @@ public class ItemUpgradeManager
         }
     }
 
+    [XmlIgnore]
     public IShopOnBuy ShopOnBuy
     {
         get
