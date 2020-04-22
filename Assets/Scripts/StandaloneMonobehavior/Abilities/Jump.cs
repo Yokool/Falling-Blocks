@@ -8,7 +8,6 @@ public class Jump : MonoBehaviour
     public float jumpHeight;
     public Rigidbody objectRigidBody;
 
-    
 
     void Start()
     {
@@ -33,6 +32,7 @@ public class Jump : MonoBehaviour
         {
 
             objectRigidBody.AddForce(new Vector3(0, jumpHeight, 0));
+            AudioManager.INSTANCE.PlaySound(SoundDatabase.JumpSFX);
 
         }
 

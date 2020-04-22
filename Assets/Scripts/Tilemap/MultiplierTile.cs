@@ -31,6 +31,7 @@ public class MultiplierTile : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<Score>().scoreMultiplier += 0.1f;
         Destroy(gameObject.GetComponent<MultiplierTile>());
+        AudioManager.INSTANCE.PlaySound(SoundDatabase.PickupMultiplierSFX);
 
     }
 }
