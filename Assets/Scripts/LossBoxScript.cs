@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LossBoxScript : MonoBehaviour
 {
+    public bool gameEnded = false;
 
     public GameObject linkedMap;
 
@@ -35,12 +36,16 @@ public class LossBoxScript : MonoBehaviour
             return;
         }
 
-        if (collision.gameObject.tag.Equals("Player"))
+        if (!gameEnded && collision.gameObject.tag.Equals("Player"))
         {
+            gameEnded = true;
             gameCanvas.gameObject.SetActive(false);
             gameOverCanvas.gameObject.SetActive(true);
 
             gameOverCanvas.GetComponent<GameOverUI>().GameEnded();
+
+            AudioManager.INSTANCE.PlaySound(SoundDatabase.GameOver_Tune);
+            MusicManager.INSTANCE.PlayMusic(null);
 
             return;
         }

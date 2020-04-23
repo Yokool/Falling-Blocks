@@ -33,8 +33,8 @@ public class GameOverUI : MonoBehaviour
 
         SessionData sessionData = new SessionData(scoreScript);
         
-        SaveSystem.dataLoaded.AddSessionData(sessionData);
-        SaveSystem.SavePersistentData();
+        PersistentDataSaveSystem.dataLoaded.AddSessionData(sessionData);
+        PersistentDataSaveSystem.SavePersistentData();
 
 
     }

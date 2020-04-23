@@ -55,7 +55,7 @@ public class MainMenuCanvasScript : MonoBehaviour
     {
         HideMainMenu();
 
-        SaveSystem.SavePersistentData(); // Just to be sure save the data again.
+        PersistentDataSaveSystem.SavePersistentData(); // Just to be sure save the data again.
         Application.Quit();
     }
 
