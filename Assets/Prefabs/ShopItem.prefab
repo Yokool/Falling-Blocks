@@ -965,7 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327649519454027525}
   - component: {fileID: 2327649519454027527}
-  - component: {fileID: 2327649519454027526}
+  - component: {fileID: 2942450605876113277}
   m_Layer: 5
   m_Name: ItemSprite
   m_TagString: Untagged
@@ -1000,7 +1000,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2327649519454027524}
   m_CullTransparentMesh: 0
---- !u!114 &2327649519454027526
+--- !u!114 &2942450605876113277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   itemCostText: {fileID: 4031403703981233890}
   itemDescriptionText: {fileID: 5433098661440191067}
   upgradeSlider: {fileID: 2327649518260208751}
-  itemImage: {fileID: 2327649519454027526}
+  itemImage: {fileID: 2942450605876113277}
 --- !u!1 &2327649519861825294
 GameObject:
   m_ObjectHideFlags: 0

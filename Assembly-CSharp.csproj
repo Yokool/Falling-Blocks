@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\ShopItems\SaveableLevelItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableScoreItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableShopItem.cs" />
+    <Compile Include="Assets\Scripts\SpriteDatabase.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jetpack.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\Abilities\Jump.cs" />
     <Compile Include="Assets\Scripts\StandaloneMonobehavior\DestroyOnCollision.cs" />
