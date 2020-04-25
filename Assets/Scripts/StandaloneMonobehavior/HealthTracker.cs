@@ -15,14 +15,22 @@ public class HealthTracker : MonoBehaviour
 
     private Material objectMaterial;
 
+    [SerializeField]
+    private Material endMaterial;
+
+    private Color endColor;
+
     void Start()
     {
 
         onDeath = gameObject.GetComponent<IOnDeath>();
         objectMaterial = gameObject.GetComponent<Renderer>().material;
-        ChangeColor();
+        endColor = endMaterial.color;
 
         startingHealth = health;
+        ChangeColor();
+
+        
 
     }
 
@@ -56,9 +64,11 @@ public class HealthTracker : MonoBehaviour
 
         float percentage = Mathf.Abs(health / startingHealth);
 
-        float rgb = Mathf.Lerp(0, 1, percentage);
+        float r = Mathf.Lerp(endColor.r, objectMaterial.color.r, percentage);
+        float g = Mathf.Lerp(endColor.g, objectMaterial.color.g, percentage);
+        float b = Mathf.Lerp(endColor.b, objectMaterial.color.b, percentage);
 
-        objectMaterial.color = new Color(rgb, rgb, rgb);
+        objectMaterial.color = new Color(r, g, b);
 
     }
 }

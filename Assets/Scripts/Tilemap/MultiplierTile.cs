@@ -7,15 +7,11 @@ public class MultiplierTile : MonoBehaviour
 
     private void Start()
     {
-        gameObject.GetComponent<Renderer>().material.color = new Color(1, 0, 0);
-
+        gameObject.GetComponent<Renderer>().material.color = GameCodeConstants.DarkRedColor; // Dark Red
     }
 
     private void OnDestroy()
     {
-
-
-
         GameObject tilemap = GameObject.FindGameObjectWithTag("Tilemap");
 
         if (!tilemap)
@@ -28,7 +24,7 @@ public class MultiplierTile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        // Meteorites also trigger the multiplier: INTENDED!
         GameObject.FindGameObjectWithTag("Player").GetComponent<Score>().scoreMultiplier += 0.1f;
         Destroy(gameObject.GetComponent<MultiplierTile>());
         AudioManager.INSTANCE.PlaySound(SoundDatabase.PickupMultiplierSFX);
