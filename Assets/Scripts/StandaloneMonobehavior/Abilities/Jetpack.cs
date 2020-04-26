@@ -15,6 +15,8 @@ public class Jetpack : MonoBehaviour
 
     public float jetpackStrength;
 
+    public bool flying;
+
     void Start()
     {
 
@@ -31,6 +33,7 @@ public class Jetpack : MonoBehaviour
 
         if (IsGrounded())
         {
+            
             jetpackFuel += jetpackRefuelIncrement; // Change the values later
 
             if(jetpackFuel >= maxFuel)
@@ -41,17 +44,19 @@ public class Jetpack : MonoBehaviour
             return;
         }
 
-        if (Input.GetKey(KeyCode.Space) && jetpackFuel >= 0)
+        if (flying && jetpackFuel > 0)
         {
-
-            jetpackFuel -= jetpackSpendFuelDecrement; // Change the values later
-            objectRigidBody.AddForce(new Vector3(0, jetpackStrength, 0)); // Change values later
-
+            PerformJetpackFlightTick();
         }
 
     }
 
-    
+    public void PerformJetpackFlightTick()
+    {
+        jetpackFuel -= jetpackSpendFuelDecrement;
+        objectRigidBody.AddForce(new Vector3(0, jetpackStrength, 0));
+    }
+
 
     public bool IsGrounded()
     {

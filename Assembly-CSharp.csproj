@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActionButton.cs" />
     <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\DontDestroyOnLoad.cs" />
     <Compile Include="Assets\LocalPlayer.cs" />
@@ -112,6 +113,11 @@
     <Compile Include="Assets\Scripts\Tilemap\SpawnAbove.cs" />
     <Compile Include="Assets\Scripts\Tilemap\TileManager.cs" />
     <Compile Include="Assets\Scripts\Tilemap\TilemapBoundsProvider.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\ActionDeterminator.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\CooldownDeterminator.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\OnActionJetpack.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\OnActionJump.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\OnActionClick.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\UI\ScorePrinter.cs" />
     <Compile Include="Assets\Scripts\UI\ShopItemUICreator.cs" />
