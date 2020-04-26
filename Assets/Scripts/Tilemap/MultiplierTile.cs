@@ -27,6 +27,7 @@ public class MultiplierTile : MonoBehaviour
         // Meteorites also trigger the multiplier: INTENDED!
         GameObject.FindGameObjectWithTag("Player").GetComponent<Score>().scoreMultiplier += 0.1f;
         Destroy(gameObject.GetComponent<MultiplierTile>());
+        GetComponent<HealthTracker>().TakeDamage(10000f);
         AudioManager.INSTANCE.PlaySound(SoundDatabase.PickupMultiplierSFX);
 
     }

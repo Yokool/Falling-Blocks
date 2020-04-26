@@ -65,11 +65,14 @@
   <ItemGroup>
     <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\DontDestroyOnLoad.cs" />
+    <Compile Include="Assets\LocalPlayer.cs" />
     <Compile Include="Assets\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Data\PersistentDataSaveSystem.cs" />
     <Compile Include="Assets\Scripts\Data\PersistentSavedData.cs" />
     <Compile Include="Assets\Scripts\Data\SessionData.cs" />
     <Compile Include="Assets\Scripts\GameCodeConstants.cs" />
+    <Compile Include="Assets\Scripts\GameOverManager.cs" />
+    <Compile Include="Assets\Scripts\IngameUI.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IBoundsProvider.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IOnDeath.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IOnTouch.cs" />

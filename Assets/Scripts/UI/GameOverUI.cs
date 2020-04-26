@@ -12,30 +12,18 @@ public class GameOverUI : MonoBehaviour
 
     public Button goToMainMenuButton;
 
-    public Score scoreScript;
-
     private void Start()
     {
         goToMainMenuButton.onClick.AddListener(GoToMainMenu);
     }
 
-    public void GameEnded()
+    public void UpdateTextValues()
     {
-
-        youScoreValueText.text = Convert.ToString(scoreScript.score);
-
+        youScoreValueText.text = Convert.ToString(LocalPlayer.INSTANCE.Score.score);
     }
 
     private void GoToMainMenu()
     {
-
         SceneManager.LoadScene((int)SceneEnum.MAIN_MENU, LoadSceneMode.Single);
-
-        SessionData sessionData = new SessionData(scoreScript);
-        
-        PersistentDataSaveSystem.dataLoaded.AddSessionData(sessionData);
-        PersistentDataSaveSystem.SavePersistentData();
-
-
     }
 }

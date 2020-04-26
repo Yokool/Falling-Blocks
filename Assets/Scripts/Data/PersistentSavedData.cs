@@ -30,7 +30,8 @@ public class PersistentSavedData
     }
 
     /// <summary>
-    /// Adds data from a session (single game) to the persistent data.
+    /// Adds data from a session (single game) to the persistent data, you must
+    /// serialize manually.
     /// </summary>
     /// <param name="sessionData"></param>
     public void AddSessionData(SessionData sessionData)
