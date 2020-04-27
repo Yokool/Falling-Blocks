@@ -10,6 +10,9 @@ public static class SpriteDatabase
     public static Sprite JetEngine;
     public static Sprite GoldenMask;
     public static Sprite MechanicalLeg;
+    public static Sprite DeedRed;
+    public static Sprite DeedBlue;
+
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
     public static void LoadSprites()
@@ -19,6 +22,8 @@ public static class SpriteDatabase
         JetEngine = Resources.Load<Sprite>("ShopIcons/JetEngine");
         GoldenMask = Resources.Load<Sprite>("ShopIcons/GoldenMask");
         MechanicalLeg = Resources.Load<Sprite>("ShopIcons/MechanicalLeg");
+        DeedRed = Resources.Load<Sprite>("ShopIcons/DeedRed");
+        DeedBlue = Resources.Load<Sprite>("ShopIcons/DeedBlue");
     }
 
 }

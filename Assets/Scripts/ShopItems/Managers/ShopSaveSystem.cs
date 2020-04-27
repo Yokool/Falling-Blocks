@@ -46,8 +46,8 @@ public static class ShopSaveSystem
 
         ItemUpgradeManager Jump_Strength_Manager = new ItemUpgradeManager("Mechanic Legs", "Upgrading the inner mechanism of the legs will allow you to jump higher.", 100, SpriteDatabase.MechanicalLeg, 1.1f, 10, new Jump_Strength_Buy());
 
-        ItemUpgradeManager Level_Width_Manager = new ItemUpgradeManager("Buy More Land - Width", "Increase the width of your playing field.", 120, null, 1.05f, 100, new LevelOnBuyWidth());
-        ItemUpgradeManager Level_Height_Manager = new ItemUpgradeManager("Buy More Land - Height", "Increase the height of your playing field.", 120, null, 1.05f, 100, new LevelOnBuyHeight());
+        ItemUpgradeManager Level_Width_Manager = new ItemUpgradeManager("Buy More Land - Width", "Increase the width of your playing field.", 120, SpriteDatabase.DeedRed, 1.05f, 100, new LevelOnBuyWidth());
+        ItemUpgradeManager Level_Height_Manager = new ItemUpgradeManager("Buy More Land - Height", "Increase the height of your playing field.", 120, SpriteDatabase.DeedBlue, 1.05f, 100, new LevelOnBuyHeight());
 
         ItemUpgradeManager Score_Multiplier_Manager = new ItemUpgradeManager("Golden Mask", "\"The more masks you have, the better score per second you'll get.\"", 240, SpriteDatabase.GoldenMask, 1.1f, 20, new ScoreOnBuyMultiplier());
 
