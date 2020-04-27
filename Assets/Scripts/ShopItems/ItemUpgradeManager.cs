@@ -5,6 +5,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 using UnityEngine;
 
+/// <summary>
+/// A serialized class that manages the data of a single shop item.
+/// This class contains the functionality for upgrading items through the shop, the image, name etc of the item.
+/// 
+/// What this class does not contain is the actual data that gets upgraded. That is contained in a SaveableShopItem subclass.
+/// </summary>
 [System.Serializable]
 public class ItemUpgradeManager
 {
@@ -15,6 +21,20 @@ public class ItemUpgradeManager
     {
 
     }
+    /// <summary>
+    /// Constructs a new shop item that can be upgraded.
+    /// The construction takes place in the ShopSaveSystem. Since the class is serialized. The constructor is used as the data initializer
+    /// if the file does not exist.
+    /// 
+    /// If the file does exist, the constructor takes its data from there.
+    /// </summary>
+    /// <param name="i_name"></param>
+    /// <param name="description"></param>
+    /// <param name="cost"></param>
+    /// <param name="image"></param>
+    /// <param name="costIncrementor"></param>
+    /// <param name="maxUpgradeAmount"></param>
+    /// <param name="shopOnBuy"></param>
     public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costIncrementor, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
     {
         this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
@@ -22,7 +42,7 @@ public class ItemUpgradeManager
         int upgradeTracker = 1;
 
         ItemUpgradeManager loaded = Load(path);
-        if (loaded != null)
+        if (loaded != null) // We found the data, get the data from the file.
         {
             this.i_name = loaded.i_name;
             this.description = loaded.description;
@@ -56,19 +76,46 @@ public class ItemUpgradeManager
     }
     [XmlIgnore]
     public string path;
-
+    /// <summary>
+    /// The name of the item that is shown in the ui shop.
+    /// </summary>
     private string i_name;
+    /// <summary>
+    /// The description of the item shown in the UI shop.
+    /// </summary>
     private string description;
-
+    /// <summary>
+    /// The cost of the item that is shown in the UI shop.
+    /// This variable is influenced by the costMultpilier by being multiplied by it, when the user buys the item.
+    /// </summary>
     private int cost;
-
+    /// <summary>
+    /// The sprite of the item shown in the UI shop. The Sprite is always taken runtime. It is not serialized.
+    /// </summary>
+    [XmlIgnore]
     private Sprite image;
 
+    /// <summary>
+    /// A float that is usually between 1.0f and more. The costMultiplier influences the cost of the item by multiplying the cost
+    /// of the item by this variable.
+    /// </summary>
     private float costMultiplier;
 
+    /// <summary>
+    /// The current upgrade tracker. The user can't buy more items than in maxUpgradeAmount.
+    /// </summary>
     private int currentUpgrade;
+
+    /// <summary>
+    /// How many times we can upgrade the item.
+    /// </summary>
     private int maxUpgradeAmount;
 
+    /// <summary>
+    /// The method of this class gets called when the user clicks the shop buy button when he CAN buy the item. (Having enough money.)
+    /// 
+    /// See IShopOnBuy for more information.
+    /// </summary>
     [XmlIgnore]
     private IShopOnBuy shopOnBuy;
 
@@ -82,10 +129,10 @@ public class ItemUpgradeManager
 
         fileStream.Close();
     }
-
+    
     public bool CanBuy()
     {
-        return ((SaveSystem.dataLoaded.TotalScore >= cost) && (currentUpgrade < maxUpgradeAmount));
+        return ((PersistentDataSaveSystem.dataLoaded.TotalScore >= cost) && (currentUpgrade < maxUpgradeAmount));
     }
 
     public void BuyItem()
@@ -96,7 +143,7 @@ public class ItemUpgradeManager
         }
         ++CurrentUpgrade;
 
-        SaveSystem.dataLoaded.TotalScore -= Cost;
+        PersistentDataSaveSystem.dataLoaded.TotalScore -= Cost;
         Cost = (int)((float)Cost * CostMultiplier);
 
         ShopOnBuy.OnBuy();

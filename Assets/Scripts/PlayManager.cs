@@ -16,6 +16,7 @@ public class PlayManager : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene((int)SceneEnum.GAME_SCENE, LoadSceneMode.Single);
+        MusicManager.INSTANCE.PlayMusic(SoundDatabase.Game_Theme);
     }
 
 

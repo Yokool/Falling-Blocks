@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LossBoxScript : MonoBehaviour
 {
-
+    
     public GameObject linkedMap;
 
     public Canvas gameCanvas;
@@ -29,18 +29,17 @@ public class LossBoxScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag.Equals("Meteor"))
+        if (collision.gameObject.tag.Equals("Meteor")) // The loss box automatically cleans up any leftover meteors
         {
             Destroy(collision.gameObject);
             return;
         }
 
-        if (collision.gameObject.tag.Equals("Player"))
+        if (!GameOverManager.INSTANCE.GameEnded && collision.gameObject.tag.Equals("Player")) // For the first time the user touches the lossbox, the game ends
         {
-            gameCanvas.gameObject.SetActive(false);
-            gameOverCanvas.gameObject.SetActive(true);
-
-            gameOverCanvas.GetComponent<GameOverUI>().GameEnded();
+            // Sets the game UI to false and GameOverUI to true
+            // HANDLE: GameUI
+            GameOverManager.INSTANCE.EndGame();
 
             return;
         }

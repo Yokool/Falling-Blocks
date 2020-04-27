@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 25
   dead: 0
+  endMaterial: {fileID: 2100000, guid: bcb46df78cb8be5498ee2a12233fde5f, type: 2}
 --- !u!114 &5595568677288791503
 MonoBehaviour:
   m_ObjectHideFlags: 0

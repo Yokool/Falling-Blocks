@@ -48,6 +48,11 @@ public class ShopItemUI : MonoBehaviour
         itemName.text = itemManager.I_Name;
         itemCostText.text = System.Convert.ToString(itemManager.Cost);
         itemDescriptionText.text = itemManager.Description;
+        if(itemManager.ItemImage != null)
+        {
+            itemImage.sprite = itemManager.ItemImage;
+        }
+        
 
         upgradeSlider.value = itemManager.CurrentUpgrade;
         

@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Persistent data of the game that is serialized in files.
+/// Persistent data of the game, like the score etc.
+/// 
+/// The data is serialized.
 /// </summary>
 [System.Serializable]
 public class PersistentSavedData
 {
     /// <summary>
-    /// The total score saved. Use in the shop for goodies.
+    /// The total score saved.
     /// </summary>
     [SerializeField]
     private float totalScore;
@@ -28,7 +30,8 @@ public class PersistentSavedData
     }
 
     /// <summary>
-    /// Adds data from a session (single game) to the persistent data.
+    /// Adds data from a session (single game) to the persistent data, you must
+    /// serialize manually.
     /// </summary>
     /// <param name="sessionData"></param>
     public void AddSessionData(SessionData sessionData)

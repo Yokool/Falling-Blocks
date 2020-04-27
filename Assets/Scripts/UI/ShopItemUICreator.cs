@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A class used to construct a single shop item.
+/// </summary>
 public class ShopItemUICreator : MonoBehaviour
 {
     public GameObject shopItemUIPrefab;
@@ -32,7 +34,11 @@ public class ShopItemUICreator : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Creates a single shop UI item linked to a ItemUpgradeManager.
+    /// For more information see ItemUpgradeManager.
+    /// </summary>
+    /// <param name="item"></param>
     public void CreateNewUIForItem(ItemUpgradeManager item)
     {
         GameObject ShopUIItem = Instantiate(shopItemUIPrefab, gameObject.transform);
