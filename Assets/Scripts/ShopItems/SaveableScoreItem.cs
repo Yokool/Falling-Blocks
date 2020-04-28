@@ -20,7 +20,7 @@ public class SaveableScoreItem : SaveableShopItem<Score>
     public override void LoadValuesFromFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableScoreItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Open);
         SaveableScoreItem item = xmlSerializer.Deserialize(stream) as SaveableScoreItem;
         stream.Close();
         this.scoreMultiplier = item.scoreMultiplier;
@@ -44,7 +44,7 @@ public class SaveableScoreItem : SaveableShopItem<Score>
     public override void SaveToFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableScoreItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Truncate);
         xmlSerializer.Serialize(stream, this);
         stream.Close();
     }

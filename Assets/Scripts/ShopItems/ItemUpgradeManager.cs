@@ -111,7 +111,13 @@ public class ItemUpgradeManager
     {
 
         XmlSerializer binaryFormatter = new XmlSerializer(typeof(ItemUpgradeManager));
-        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        if (!File.Exists(path))
+        {
+            File.Create(path).Close(); // Save usually truncates, just create the file and throw away the stream.
+        }
+        
+        FileStream fileStream = new FileStream(path, FileMode.Truncate);
 
         binaryFormatter.Serialize(fileStream, itemUpgradeManager);
 

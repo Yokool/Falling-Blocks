@@ -31,7 +31,7 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
     public override void LoadValuesFromFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableJetpackItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Open);
         SaveableJetpackItem thisItem = xmlSerializer.Deserialize(stream) as SaveableJetpackItem;
         stream.Close();
 
@@ -70,7 +70,7 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
     public override void SaveToFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableJetpackItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Truncate);
         xmlSerializer.Serialize(stream, this);
         stream.Close();
     }

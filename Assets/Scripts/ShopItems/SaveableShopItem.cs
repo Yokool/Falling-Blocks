@@ -51,6 +51,7 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
         else
         {
             LoadDefaultValues();
+            File.Create(Application.persistentDataPath + filePath).Close(); // SaveToFile is implemented to truncate the file, since it doesn't exist, make it
             SaveToFile();
         }
 
@@ -66,9 +67,13 @@ public abstract class SaveableShopItem<T> where T : MonoBehaviour
     /// Should not be used anywhere else in the code.
     /// </summary>
     /// <returns></returns>
-    protected FileStream LoadAssociatedFile()
+    protected FileStream LoadAssociatedFile(FileMode access)
     {
-        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, FileMode.OpenOrCreate);
+        if(!File.Exists(Application.persistentDataPath + filePath))
+        {
+            File.Create(Application.persistentDataPath + filePath).Close();
+        }
+        FileStream fileStream = new FileStream(Application.persistentDataPath + filePath, access);
         return fileStream;
 
     }
