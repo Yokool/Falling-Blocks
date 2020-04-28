@@ -71,7 +71,7 @@ public static class PersistentDataSaveSystem
         dataLoaded = data;
 
 
-        dataLoaded.TotalScore = 9999e28f; // REMOVE!!!!
+        //dataLoaded.TotalScore = 9999e28f; // REMOVE!!!!
 
         persistentFile.Close();
 
