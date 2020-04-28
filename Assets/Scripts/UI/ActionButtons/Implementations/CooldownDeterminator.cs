@@ -42,4 +42,14 @@ public class CooldownDeterminator : MonoBehaviour, ActionDeterminator
         }
 
     }
+
+    public float CurrentTime
+    {
+        get
+        {
+            return currentTime;
+        }
+    }
+
+        
 }
