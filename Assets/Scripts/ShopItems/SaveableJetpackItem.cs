@@ -61,10 +61,10 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 
     public override void LoadDefaultValues()
     {
-        jetpackRefuelIncrement = SaveableDefaultValues.jetpackRefuelIncrement_DEFAULT;
-        jetpackSpendFuelDecrement = SaveableDefaultValues.jetpackSpendFuelDecrement_DEFAULT;
-        maxFuel = SaveableDefaultValues.maxFuel_DEFAULT;
-        jetpackStrength = SaveableDefaultValues.jetpackStrength_DEFAULT;
+        jetpackRefuelIncrement = GameConstants.jetpackRefuelIncrement_DEFAULT;
+        jetpackSpendFuelDecrement = GameConstants.jetpackSpendFuelDecrement_DEFAULT;
+        maxFuel = GameConstants.maxFuel_DEFAULT;
+        jetpackStrength = GameConstants.jetpackStrength_DEFAULT;
     }
 
     public override void SaveToFile()

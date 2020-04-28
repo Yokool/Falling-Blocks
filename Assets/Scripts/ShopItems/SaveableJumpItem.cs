@@ -11,6 +11,8 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
     
 
     public float jumpHeight;
+    public float jumpCooldown;
+
 
     public SaveableJumpItem()
     {
@@ -46,7 +48,8 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
 
     public override void LoadDefaultValues()
     {
-        jumpHeight = SaveableDefaultValues.jumpHeight_DEFAULT;
+        jumpHeight = GameConstants.jumpHeight_DEFAULT;
+        jumpCooldown = GameConstants.jumpCooldown_DEFAULT;
     }
 
     public override void SaveToFile()

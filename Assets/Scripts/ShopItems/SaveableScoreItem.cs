@@ -38,7 +38,7 @@ public class SaveableScoreItem : SaveableShopItem<Score>
 
     public override void LoadDefaultValues()
     {
-        scoreMultiplier = SaveableDefaultValues.scoreMultiplier_DEFAULT;
+        scoreMultiplier = GameConstants.scoreMultiplier_DEFAULT;
     }
 
     public override void SaveToFile()

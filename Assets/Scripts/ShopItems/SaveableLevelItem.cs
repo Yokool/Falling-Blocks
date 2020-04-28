@@ -48,8 +48,8 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
 
     public override void LoadDefaultValues()
     {
-        levelWidth = SaveableDefaultValues.levelWidth_DEFAULT;
-        levelHeight = SaveableDefaultValues.levelHeight_DEFAULT;
+        levelWidth = GameConstants.levelWidth_DEFAULT;
+        levelHeight = GameConstants.levelHeight_DEFAULT;
     }
 
     public override void SaveToFile()

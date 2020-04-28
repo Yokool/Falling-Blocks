@@ -651,7 +651,7 @@ PrefabInstance:
     - target: {fileID: 7560634864454983707, guid: 401393453dfaca248b844cafe3f9399a,
         type: 3}
       propertyPath: m_Name
-      value: ActionButton
+      value: ActionButtonJetpack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 401393453dfaca248b844cafe3f9399a, type: 3}
@@ -1973,10 +1973,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1846962738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73554e26431d0ad4b83d005b7f2ecf8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cd46b0a3f391cc45952d8fdaf05a40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToHit: 1
+  timeToHit: 0
   currentTime: 0
 --- !u!114 &1846962740
 MonoBehaviour:

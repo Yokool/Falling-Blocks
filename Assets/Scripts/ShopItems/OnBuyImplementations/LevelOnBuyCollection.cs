@@ -6,7 +6,7 @@ public class LevelOnBuyWidth : IShopOnBuy
 {
     public void OnBuy()
     {
-        ShopSaveSystem.SerializedLevel.levelWidth += 1;
+        ShopSaveSystem.SerializedLevel.levelWidth += GameConstants.levelWidth_BUY;
         ShopSaveSystem.SerializedLevel.SaveToFile();
     }
 }
@@ -15,7 +15,7 @@ public class LevelOnBuyHeight : IShopOnBuy
 {
     public void OnBuy()
     {
-        ShopSaveSystem.SerializedLevel.levelHeight += 1;
+        ShopSaveSystem.SerializedLevel.levelHeight += GameConstants.levelHeight_BUY;
         ShopSaveSystem.SerializedLevel.SaveToFile();
     }
 }

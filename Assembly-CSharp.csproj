@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\MainMenuScripts\ShopCanvasScript.cs" />
     <Compile Include="Assets\Scripts\PlayManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\SceneEnum.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\GameConstants.cs" />
     <Compile Include="Assets\Scripts\ShopItems\IShopOnBuy.cs" />
     <Compile Include="Assets\Scripts\ShopItems\ItemUpgradeManager.cs" />
     <Compile Include="Assets\Scripts\ShopItems\Managers\ShopItemUI.cs" />
@@ -92,7 +93,6 @@
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\JumpOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\LevelOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\ScoreOnBuyCollection.cs" />
-    <Compile Include="Assets\Scripts\ShopItems\SaveableDefaultValues.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJetpackItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJumpItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableLevelItem.cs" />
@@ -115,6 +115,8 @@
     <Compile Include="Assets\Scripts\Tilemap\TilemapBoundsProvider.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\ActionDeterminator.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\CooldownDeterminator.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\CooldownFromSerializedJump.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\ExternalValueCooldownDeterminator.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\OnActionJetpack.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\OnActionJump.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\OnActionClick.cs" />

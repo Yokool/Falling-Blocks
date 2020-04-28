@@ -6,7 +6,7 @@ public class ScoreOnBuyMultiplier : IShopOnBuy
 {
     public void OnBuy()
     {
-        ShopSaveSystem.SerializedScore.scoreMultiplier += 0.1f;
+        ShopSaveSystem.SerializedScore.scoreMultiplier += GameConstants.scoreMultiplier_BUY;
     }
 
 }
