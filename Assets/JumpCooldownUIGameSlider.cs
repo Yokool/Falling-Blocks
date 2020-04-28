@@ -9,6 +9,7 @@ public class JumpCooldownUIGameSlider : UIGameSlider
 
     public override float GetCurrentValue()
     {
+        if (cooldown.IsActionPossible()) return GetMaxValue(); // This deals with the cooldown being set to 0 when the action is possible
         return cooldown.CurrentTime;
     }
 

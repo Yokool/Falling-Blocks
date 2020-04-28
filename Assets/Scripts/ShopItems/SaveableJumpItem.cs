@@ -33,7 +33,7 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
 
 
         jumpHeight = thisItem.jumpHeight;
-
+        jumpCooldown = thisItem.jumpCooldown;
     }
 
     public override void PopulateScript(Jump script)
