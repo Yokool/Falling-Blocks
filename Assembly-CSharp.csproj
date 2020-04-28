@@ -66,6 +66,8 @@
     <Compile Include="Assets\ActionButton.cs" />
     <Compile Include="Assets\AudioManager.cs" />
     <Compile Include="Assets\DontDestroyOnLoad.cs" />
+    <Compile Include="Assets\JetpackUIGameSlider.cs" />
+    <Compile Include="Assets\JumpCooldownUIGameSlider.cs" />
     <Compile Include="Assets\LocalPlayer.cs" />
     <Compile Include="Assets\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Data\PersistentDataSaveSystem.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets\Scripts\MainMenuScripts\ShopCanvasScript.cs" />
     <Compile Include="Assets\Scripts\PlayManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\SceneEnum.cs" />
+    <Compile Include="Assets\Scripts\ShopItems\GameConstants.cs" />
     <Compile Include="Assets\Scripts\ShopItems\IShopOnBuy.cs" />
     <Compile Include="Assets\Scripts\ShopItems\ItemUpgradeManager.cs" />
     <Compile Include="Assets\Scripts\ShopItems\Managers\ShopItemUI.cs" />
@@ -92,7 +95,6 @@
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\JumpOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\LevelOnBuyCollection.cs" />
     <Compile Include="Assets\Scripts\ShopItems\OnBuyImplementations\ScoreOnBuyCollection.cs" />
-    <Compile Include="Assets\Scripts\ShopItems\SaveableDefaultValues.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJetpackItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableJumpItem.cs" />
     <Compile Include="Assets\Scripts\ShopItems\SaveableLevelItem.cs" />
@@ -115,6 +117,8 @@
     <Compile Include="Assets\Scripts\Tilemap\TilemapBoundsProvider.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\ActionDeterminator.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\CooldownDeterminator.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\CooldownFromSerializedJump.cs" />
+    <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\ExternalValueCooldownDeterminator.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\OnActionJetpack.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\Implementations\OnActionJump.cs" />
     <Compile Include="Assets\Scripts\UI\ActionButtons\OnActionClick.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+    <Compile Include="Assets\UIGameSlider.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

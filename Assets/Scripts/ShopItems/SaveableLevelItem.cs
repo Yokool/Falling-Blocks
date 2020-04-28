@@ -27,7 +27,7 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
     public override void LoadValuesFromFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableLevelItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Open);
         SaveableLevelItem saveableLevelItem = xmlSerializer.Deserialize(stream) as SaveableLevelItem;
         stream.Close();
         
@@ -48,14 +48,14 @@ public class SaveableLevelItem : SaveableShopItem<TileManager>
 
     public override void LoadDefaultValues()
     {
-        levelWidth = SaveableDefaultValues.levelWidth_DEFAULT;
-        levelHeight = SaveableDefaultValues.levelHeight_DEFAULT;
+        levelWidth = GameConstants.levelWidth_DEFAULT;
+        levelHeight = GameConstants.levelHeight_DEFAULT;
     }
 
     public override void SaveToFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableLevelItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Truncate);
         xmlSerializer.Serialize(stream, this);
         stream.Close();
     }

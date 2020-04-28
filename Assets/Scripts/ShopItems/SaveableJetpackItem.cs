@@ -31,7 +31,7 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
     public override void LoadValuesFromFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableJetpackItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Open);
         SaveableJetpackItem thisItem = xmlSerializer.Deserialize(stream) as SaveableJetpackItem;
         stream.Close();
 
@@ -61,16 +61,16 @@ public class SaveableJetpackItem : SaveableShopItem<Jetpack>
 
     public override void LoadDefaultValues()
     {
-        jetpackRefuelIncrement = SaveableDefaultValues.jetpackRefuelIncrement_DEFAULT;
-        jetpackSpendFuelDecrement = SaveableDefaultValues.jetpackSpendFuelDecrement_DEFAULT;
-        maxFuel = SaveableDefaultValues.maxFuel_DEFAULT;
-        jetpackStrength = SaveableDefaultValues.jetpackStrength_DEFAULT;
+        jetpackRefuelIncrement = GameConstants.jetpackRefuelIncrement_DEFAULT;
+        jetpackSpendFuelDecrement = GameConstants.jetpackSpendFuelDecrement_DEFAULT;
+        maxFuel = GameConstants.maxFuel_DEFAULT;
+        jetpackStrength = GameConstants.jetpackStrength_DEFAULT;
     }
 
     public override void SaveToFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableJetpackItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Truncate);
         xmlSerializer.Serialize(stream, this);
         stream.Close();
     }

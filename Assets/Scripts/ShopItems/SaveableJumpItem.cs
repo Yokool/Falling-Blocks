@@ -11,6 +11,8 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
     
 
     public float jumpHeight;
+    public float jumpCooldown;
+
 
     public SaveableJumpItem()
     {
@@ -25,13 +27,13 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
     public override void LoadValuesFromFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableJumpItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Open);
         SaveableJumpItem thisItem = xmlSerializer.Deserialize(stream) as SaveableJumpItem;
         stream.Close();
 
 
         jumpHeight = thisItem.jumpHeight;
-
+        jumpCooldown = thisItem.jumpCooldown;
     }
 
     public override void PopulateScript(Jump script)
@@ -46,13 +48,14 @@ public class SaveableJumpItem : SaveableShopItem<Jump>
 
     public override void LoadDefaultValues()
     {
-        jumpHeight = SaveableDefaultValues.jumpHeight_DEFAULT;
+        jumpHeight = GameConstants.jumpHeight_DEFAULT;
+        jumpCooldown = GameConstants.jumpCooldown_DEFAULT;
     }
 
     public override void SaveToFile()
     {
         XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveableJumpItem));
-        FileStream stream = LoadAssociatedFile();
+        FileStream stream = LoadAssociatedFile(FileMode.Truncate);
         xmlSerializer.Serialize(stream, this);
         stream.Close();
     }

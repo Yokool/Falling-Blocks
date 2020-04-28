@@ -32,44 +32,27 @@ public class ItemUpgradeManager
     /// <param name="description"></param>
     /// <param name="cost"></param>
     /// <param name="image"></param>
-    /// <param name="costIncrementor"></param>
+    /// <param name="costMultiplier"></param>
     /// <param name="maxUpgradeAmount"></param>
     /// <param name="shopOnBuy"></param>
-    public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costIncrementor, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
+    public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costMultiplier, int maxUpgradeAmount, IShopOnBuy shopOnBuy, string pathName)
     {
-        this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
+        this.path = Application.persistentDataPath + "/" + pathName + ".xml";
 
-        int upgradeTracker = 1;
+        this.i_name = i_name;
+        this.description = description;
+        this.image = image;
+        this.maxUpgradeAmount = maxUpgradeAmount;
+        this.shopOnBuy = shopOnBuy;
+        this.cost = cost;
+        this.currentUpgrade = 1;
+        this.costMultiplier = costMultiplier;
 
         ItemUpgradeManager loaded = Load(path);
         if (loaded != null) // We found the data, get the data from the file.
         {
-            this.i_name = loaded.i_name;
-            this.description = loaded.description;
-
-            this.cost = loaded.cost;
-            this.costMultiplier = loaded.costMultiplier;
-
             this.currentUpgrade = loaded.currentUpgrade;
-            this.maxUpgradeAmount = loaded.maxUpgradeAmount;
-
-            this.image = image;
-            this.shopOnBuy = shopOnBuy;
-            return;
         }
-
-        this.i_name = i_name;
-        this.description = description;
-
-        this.image = image;
-
-        this.cost = cost;
-        this.costMultiplier = costIncrementor;
-
-        this.currentUpgrade = upgradeTracker;
-        this.maxUpgradeAmount = maxUpgradeAmount;
-
-        this.shopOnBuy = shopOnBuy;
 
         ItemUpgradeManager.Save(this.path, this);
 
@@ -79,10 +62,12 @@ public class ItemUpgradeManager
     /// <summary>
     /// The name of the item that is shown in the ui shop.
     /// </summary>
+    [XmlIgnore]
     private string i_name;
     /// <summary>
     /// The description of the item shown in the UI shop.
     /// </summary>
+    [XmlIgnore]
     private string description;
     /// <summary>
     /// The cost of the item that is shown in the UI shop.
@@ -99,16 +84,19 @@ public class ItemUpgradeManager
     /// A float that is usually between 1.0f and more. The costMultiplier influences the cost of the item by multiplying the cost
     /// of the item by this variable.
     /// </summary>
+    [XmlIgnore]
     private float costMultiplier;
 
     /// <summary>
     /// The current upgrade tracker. The user can't buy more items than in maxUpgradeAmount.
     /// </summary>
+    [XmlIgnore]
     private int currentUpgrade;
 
     /// <summary>
     /// How many times we can upgrade the item.
     /// </summary>
+    [XmlIgnore]
     private int maxUpgradeAmount;
 
     /// <summary>
@@ -123,7 +111,13 @@ public class ItemUpgradeManager
     {
 
         XmlSerializer binaryFormatter = new XmlSerializer(typeof(ItemUpgradeManager));
-        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        if (!File.Exists(path))
+        {
+            File.Create(path).Close(); // Save usually truncates, just create the file and throw away the stream.
+        }
+        
+        FileStream fileStream = new FileStream(path, FileMode.Truncate);
 
         binaryFormatter.Serialize(fileStream, itemUpgradeManager);
 
@@ -132,7 +126,7 @@ public class ItemUpgradeManager
     
     public bool CanBuy()
     {
-        return ((PersistentDataSaveSystem.dataLoaded.TotalScore >= cost) && (currentUpgrade < maxUpgradeAmount));
+        return ((PersistentDataSaveSystem.dataLoaded.TotalScore >= Cost) && (currentUpgrade < maxUpgradeAmount));
     }
 
     public void BuyItem()
@@ -141,10 +135,10 @@ public class ItemUpgradeManager
         {
             return;
         }
-        ++CurrentUpgrade;
-
+        
         PersistentDataSaveSystem.dataLoaded.TotalScore -= Cost;
-        Cost = (int)((float)Cost * CostMultiplier);
+
+        ++CurrentUpgrade;
 
         ShopOnBuy.OnBuy();
 
@@ -169,7 +163,7 @@ public class ItemUpgradeManager
         return loaded;
 
     }
-
+    [XmlIgnore]
     public string I_Name
     {
         get
@@ -182,7 +176,7 @@ public class ItemUpgradeManager
             i_name = value;
         }
     }
-
+    [XmlIgnore]
     public string Description
     {
 
@@ -211,12 +205,17 @@ public class ItemUpgradeManager
             image = value;
         }
     }
-
+    [XmlIgnore]
     public int Cost
     {
         get
         {
-            return cost;
+            int _cost = cost;
+            for(int i = 2; i <= CurrentUpgrade; ++i)
+            {
+                _cost += (int)((cost * (costMultiplier)) * CurrentUpgrade);
+            }
+            return _cost;
         }
 
         set
@@ -224,7 +223,7 @@ public class ItemUpgradeManager
             cost = value;
         }
     }
-
+    [XmlIgnore]
     public float CostMultiplier
     {
         get
@@ -250,7 +249,7 @@ public class ItemUpgradeManager
             currentUpgrade = value;
         }
     }
-
+    [XmlIgnore]
     public int MaxUpgradeAmount
     {
         get

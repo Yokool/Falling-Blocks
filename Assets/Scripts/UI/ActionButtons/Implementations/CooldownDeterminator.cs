@@ -5,7 +5,7 @@ using UnityEngine;
 public class CooldownDeterminator : MonoBehaviour, ActionDeterminator
 {
     [SerializeField]
-    private float timeToHit;
+    protected float timeToHit;
 
     [SerializeField] // <-- serialized for testing for the inspector
     private float currentTime = 0;
@@ -42,4 +42,14 @@ public class CooldownDeterminator : MonoBehaviour, ActionDeterminator
         }
 
     }
+
+    public float CurrentTime
+    {
+        get
+        {
+            return currentTime;
+        }
+    }
+
+        
 }
