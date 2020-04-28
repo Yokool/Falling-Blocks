@@ -35,9 +35,9 @@ public class ItemUpgradeManager
     /// <param name="costMultiplier"></param>
     /// <param name="maxUpgradeAmount"></param>
     /// <param name="shopOnBuy"></param>
-    public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costMultiplier, int maxUpgradeAmount, IShopOnBuy shopOnBuy)
+    public ItemUpgradeManager(string i_name, string description, int cost, Sprite image, float costMultiplier, int maxUpgradeAmount, IShopOnBuy shopOnBuy, string pathName)
     {
-        this.path = Application.persistentDataPath + "/" + i_name + ".itemmanager";
+        this.path = Application.persistentDataPath + "/" + pathName + ".xml";
 
         this.i_name = i_name;
         this.description = description;
