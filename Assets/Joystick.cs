@@ -32,11 +32,11 @@ public class Joystick : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         float deltaX = eventData.position.x - startPos.x;
         float deltaY = eventData.position.y - startPos.y;
 
-        MovementDeltaX = deltaX;
-        MovementDeltaY = deltaY;
-        
         deltaX = Mathf.Clamp(deltaX, -parentRectSize.x + thisRectSize.x, parentRectSize.y - thisRectSize.x);
         deltaY = Mathf.Clamp(deltaY, -parentRectSize.y + thisRectSize.y, parentRectSize.y - thisRectSize.y);
+
+        MovementDeltaX = deltaX;
+        MovementDeltaY = deltaY;
 
         newPos.x = deltaX;
         newPos.y = deltaY;
