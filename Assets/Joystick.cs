@@ -6,50 +6,75 @@ using UnityEngine.EventSystems;
 public class Joystick : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [SerializeField]
-    private GameObject parent;
-
-    private bool dragging;
-
-    private Vector3 centerPos;
-
     private Transform thisTransform;
+    [SerializeField]
     private Transform parentTransform;
-
-    private Camera mainCamera;
 
     private Vector3 startPos;
 
-    private Vector3 diff;
+    private Vector3 parentRectSize;
+    private Vector3 thisRectSize;
+
+    private Movement playerMovement;
+
+
+    private float MovementDeltaX;
+    private float MovementDeltaY;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        startPos = eventData.position;
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        thisTransform.position = eventData.position;
-        diff = new Vector3(eventData.position.x, 0f, eventData.position.y) - new Vector3(startPos.x, 0f, startPos.y);
+        Vector3 newPos = Vector3.zero;
+        float deltaX = eventData.position.x - startPos.x;
+        float deltaY = eventData.position.y - startPos.y;
+
+        MovementDeltaX = deltaX;
+        MovementDeltaY = deltaY;
+        
+        deltaX = Mathf.Clamp(deltaX, -parentRectSize.x + thisRectSize.x, parentRectSize.y - thisRectSize.x);
+        deltaY = Mathf.Clamp(deltaY, -parentRectSize.y + thisRectSize.y, parentRectSize.y - thisRectSize.y);
+
+        newPos.x = deltaX;
+        newPos.y = deltaY;
+
+        newPos = newPos + startPos;
+
+        thisTransform.position = newPos;
+
+
     }
+
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        thisTransform.position = centerPos;
-        startPos = Vector3.zero;
+        thisTransform.localPosition = Vector3.zero;
+        MovementDeltaX = 0f;
+        MovementDeltaY = 0f;
     }
 
     void Start()
     {
-        centerPos = gameObject.transform.position;
-        thisTransform = gameObject.transform;
-        parentTransform = parent.transform;
-        mainCamera = Camera.main;
+        startPos = thisTransform.position;
+
+        parentRectSize = parentTransform.GetComponent<RectTransform>().rect.size;
+        thisRectSize = thisTransform.GetComponent<RectTransform>().rect.size;
+
+        
     }
 
     void Update()
     {
-        Debug.Log(diff);
-        LocalPlayer.INSTANCE.Player.GetComponent<Rigidbody>().AddForce(new Vector3(diff.x, 0f, diff.z) * Time.deltaTime);
+        if (playerMovement == null)
+        {
+            playerMovement = LocalPlayer.INSTANCE.Player.GetComponent<Movement>();
+        }
+        playerMovement.MovePlayer(MovementDeltaX * 0.00625f, 0f, MovementDeltaY * 0.00625f);
     }
+
+
 
 }

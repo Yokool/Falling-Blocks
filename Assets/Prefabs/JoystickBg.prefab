@@ -86,7 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a37c94bf30d194aa48ce96ada2f6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 6215403030896972778}
+  thisTransform: {fileID: 6576564996895553688}
+  parentTransform: {fileID: 2448953040948161416}
 --- !u!1 &6215403030896972778
 GameObject:
   m_ObjectHideFlags: 0

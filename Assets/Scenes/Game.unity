@@ -3012,6 +3012,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3671238570073339276, guid: c3309fdff02703d4abc607bb716da17c,
+        type: 3}
+      propertyPath: joystickSpeedMultiplier
+      value: 0.0125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671238570073339276, guid: c3309fdff02703d4abc607bb716da17c,
+        type: 3}
+      propertyPath: parentTransform
+      value: 
+      objectReference: {fileID: 671676984}
     - target: {fileID: 6215403030896972778, guid: c3309fdff02703d4abc607bb716da17c,
         type: 3}
       propertyPath: m_Name

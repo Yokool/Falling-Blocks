@@ -25,9 +25,12 @@ public class Movement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
 
-        Vector2 movementVector = new Vector2(horizontal * speed * Time.deltaTime, vertical * speed * Time.deltaTime);
+        MovePlayer(horizontal, 0f, vertical);
 
-        rigidBody.AddForce((new Vector3(movementVector.x, 0, movementVector.y)));
+    }
 
+    public void MovePlayer(float x, float y, float z)
+    {
+        rigidBody.AddForce(new Vector3(x * speed * Time.deltaTime, y * speed * Time.deltaTime, z * speed * Time.deltaTime));
     }
 }
