@@ -142,6 +142,8 @@ public class ItemUpgradeManager
 
         ShopOnBuy.OnBuy();
 
+        ShopCanvasScript.INSTANCE.UpdateGUI(); // Update the amount of coins we have
+
         ItemUpgradeManager.Save(path, this);
     }
 

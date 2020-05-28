@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ShopCanvasScript : MonoBehaviour
 {
+
+
+
+    public TextMeshProUGUI coinText;
 
     public static ShopCanvasScript INSTANCE
     {
@@ -40,5 +45,15 @@ public class ShopCanvasScript : MonoBehaviour
     {
         HideShop();
         MainMenuCanvasScript.Instance.ShowMainMenu();
+    }
+
+    private void OnEnable()
+    {
+        UpdateGUI();
+    }
+
+    public void UpdateGUI()
+    {
+        coinText.text = System.Convert.ToString(PersistentDataSaveSystem.dataLoaded.TotalScore);
     }
 }
